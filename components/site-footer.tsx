@@ -10,7 +10,7 @@ export function SiteFooter() {
     <footer className="bg-[#FFFFFF] dark:bg-[#16161F] pt-14 pb-7 border-t border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)]">
       <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-7">
         {/* Main footer grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {/* Brand column */}
           <div>
             <div className="flex items-baseline gap-2 mb-5">
@@ -48,46 +48,14 @@ export function SiteFooter() {
               {t("CONTACTO", "CONTACT")}
             </div>
             <div className="flex flex-col text-[13px] leading-[2] text-[#5C5C5C] dark:text-[#888899]">
-              <a href="mailto:hello@yeristech.com" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">
-                hello@yeristech.com
+              <a href="mailto:info@yeristech.com" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">
+                info@yeristech.com
               </a>
               <span>Caracas, Venezuela</span>
               <span>{t("Clientes en todo el mundo", "Clients worldwide")}</span>
             </div>
           </div>
 
-          {/* Social */}
-          <div>
-            <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.18em] mb-4">
-              SOCIAL
-            </div>
-            <div className="flex flex-col text-[13px] leading-[2] text-[#5C5C5C] dark:text-[#888899]">
-              <a 
-                href="https://twitter.com/yeristech" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
-              >
-                X / Twitter
-              </a>
-              <a 
-                href="https://linkedin.com/company/yeristech" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
-              >
-                LinkedIn
-              </a>
-              <a 
-                href="https://github.com/yesman-coder" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
-              >
-                GitHub
-              </a>
-            </div>
-          </div>
         </div>
 
         {/* Bottom bar */}
