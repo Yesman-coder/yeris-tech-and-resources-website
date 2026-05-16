@@ -25,6 +25,7 @@ export type Project = {
   stack: string[];            // what it's built with
   outcome?: string;           // one-line result if known
   featured: boolean;          // appears on homepage
+  hidePreview?: boolean;      // true = skip screenshot, show placeholder (e.g. deployment protection)
 };
 
 export const projects: Project[] = [
@@ -117,6 +118,7 @@ export const projects: Project[] = [
     services: ["Product design", "Web app development", "Auth & roles"],
     stack: ["Next.js", "Tailwind CSS", "v0", "Vercel"],
     featured: false,
+    hidePreview: true,
   },
   {
     slug: "world-fixer",

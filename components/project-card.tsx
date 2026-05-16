@@ -90,6 +90,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
                 alt={`${project.title} screenshot`}
                 initials={initials}
                 priority={priority}
+                hidePreview={project.hidePreview}
               />
             </div>
           </div>

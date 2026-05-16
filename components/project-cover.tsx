@@ -7,6 +7,7 @@ interface ProjectCoverProps {
   alt: string;
   initials?: string;
   priority?: boolean;
+  hidePreview?: boolean;
 }
 
 function PlaceholderCover({ initials }: { initials: string }) {
@@ -25,10 +26,11 @@ export function ProjectCover({
   alt,
   initials = "??",
   priority = false,
+  hidePreview = false,
 }: ProjectCoverProps) {
   const [errored, setErrored] = useState(false);
 
-  if (!url || errored) {
+  if (!url || errored || hidePreview) {
     return <PlaceholderCover initials={initials} />;
   }
 
