@@ -34,6 +34,15 @@ export default function ContactPage() {
             </a>
           </div>
           <div>
+            <Kicker className="mb-2">Phone</Kicker>
+            <a
+              href="tel:+13054177464"
+              className="text-base text-(--color-fg) hover:text-(--color-accent) transition-colors"
+            >
+              (305) 417-7464
+            </a>
+          </div>
+          <div>
             <Kicker className="mb-2">Location</Kicker>
             <p className="text-base text-(--color-muted)">
               Florida, USA · Working with clients worldwide

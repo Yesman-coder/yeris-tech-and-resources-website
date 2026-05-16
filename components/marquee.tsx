@@ -7,14 +7,14 @@ export function Marquee({ items }: MarqueeProps) {
 
   return (
     <div className="overflow-hidden w-full" aria-hidden="true">
-      <div className="flex animate-marquee whitespace-nowrap gap-12">
+      <div className="flex animate-marquee whitespace-nowrap gap-16">
         {doubled.map((item, i) => (
           <span
             key={i}
-            className="text-sm font-mono uppercase tracking-[0.15em] text-(--color-muted) shrink-0"
+            className="text-base font-mono uppercase tracking-[0.15em] text-(--color-fg) shrink-0"
           >
             {item}
-            <span className="ml-12 text-(--color-border)">·</span>
+            <span className="ml-16 text-(--color-accent)">·</span>
           </span>
         ))}
       </div>

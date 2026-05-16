@@ -1,4 +1,7 @@
+"use client";
 import Link from "next/link";
+import { useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, useReducedMotion } from "motion/react";
 import { type Project } from "@/lib/projects";
 import { ProjectCover } from "./project-cover";
 import { Kicker } from "./kicker";
@@ -9,6 +12,33 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, priority = false }: ProjectCardProps) {
+  const prefersReduced = useReducedMotion();
+  const ref = useRef<HTMLDivElement>(null);
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), {
+    stiffness: 200,
+    damping: 20,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), {
+    stiffness: 200,
+    damping: 20,
+  });
+
+  function onMouseMove(e: React.MouseEvent<HTMLDivElement>) {
+    if (prefersReduced || !ref.current) return;
+    const rect = ref.current.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  }
+
+  function onMouseLeave() {
+    mouseX.set(0);
+    mouseY.set(0);
+  }
+
   const initials = project.title
     .split(" ")
     .map((w) => w[0])
@@ -17,34 +47,45 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
     .toUpperCase();
 
   return (
-    <Link
-      href={`/work/${project.slug}`}
-      className="group block rounded-2xl border border-(--color-border) bg-(--color-bg-elev) overflow-hidden transition-all duration-300 hover:border-(--color-accent) hover:shadow-[0_8px_32px_-8px_oklch(0.78_0.18_75/0.25)] focus-visible:outline-2 focus-visible:outline-(--color-accent) focus-visible:outline-offset-2"
+    <div
+      ref={ref}
+      onMouseMove={onMouseMove}
+      onMouseLeave={onMouseLeave}
+      style={{ perspective: 800 }}
     >
-      <div className="overflow-hidden">
-        <div className="transition-transform duration-500 group-hover:-translate-y-2">
-          <ProjectCover
-            url={project.liveUrl}
-            alt={`${project.title} screenshot`}
-            initials={initials}
-            priority={priority}
-          />
-        </div>
-      </div>
-      <div className="p-6">
-        <Kicker className="mb-2">
-          {project.industry} · {project.year}
-        </Kicker>
-        <h3 className="text-xl font-medium text-(--color-fg) mb-1 group-hover:text-(--color-accent) transition-colors duration-200">
-          {project.title}
-        </h3>
-        <p className="text-sm text-(--color-muted) leading-relaxed mb-4">
-          {project.tagline}
-        </p>
-        <span className="text-sm font-mono text-(--color-accent) group-hover:underline">
-          View case study →
-        </span>
-      </div>
-    </Link>
+      <motion.div
+        style={prefersReduced ? {} : { rotateX, rotateY, transformStyle: "preserve-3d" }}
+      >
+        <Link
+          href={`/work/${project.slug}`}
+          className="group block rounded-2xl border border-(--color-border) bg-(--color-bg-elev) overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-(--color-accent) hover:shadow-[0_8px_32px_-8px_oklch(0.78_0.18_75/0.25)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-(--color-accent) focus-visible:outline-offset-2"
+        >
+          <div className="overflow-hidden">
+            <div className="transition-transform duration-[400ms] [transition-timing-function:cubic-bezier(0.23,1,0.32,1)] group-hover:-translate-y-2">
+              <ProjectCover
+                url={project.liveUrl}
+                alt={`${project.title} screenshot`}
+                initials={initials}
+                priority={priority}
+              />
+            </div>
+          </div>
+          <div className="p-6">
+            <Kicker className="mb-2">
+              {project.industry} · {project.year}
+            </Kicker>
+            <h3 className="text-xl font-medium text-(--color-fg) mb-1 group-hover:text-(--color-accent) transition-colors duration-200">
+              {project.title}
+            </h3>
+            <p className="text-sm text-(--color-muted) leading-relaxed mb-4">
+              {project.tagline}
+            </p>
+            <span className="text-sm font-mono text-(--color-accent) group-hover:underline">
+              View case study →
+            </span>
+          </div>
+        </Link>
+      </motion.div>
+    </div>
   );
 }

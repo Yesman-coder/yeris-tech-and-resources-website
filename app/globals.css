@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Custom easing curves */
+:root {
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
 @theme inline {
   /* Brand tokens */
   --color-bg:            oklch(0.09 0.005 240);
@@ -39,6 +46,40 @@
 
 .animate-marquee:hover {
   animation-play-state: paused;
+}
+
+/* Scroll indicator bounce */
+@keyframes bounce-y {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(6px); }
+}
+
+.animate-bounce-y {
+  animation: bounce-y 1.6s ease-in-out infinite;
+}
+
+/* Hero ambient glow */
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.07; }
+  50%       { opacity: 0.13; }
+}
+
+.hero-glow {
+  animation: glow-pulse 8s ease-in-out infinite;
+}
+
+/* Press feedback — applied globally to interactive elements */
+button:active,
+a:active {
+  transform: scale(0.97);
+}
+
+/* Reduced-motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee  { animation: none; }
+  .animate-bounce-y { animation: none; }
+  .hero-glow        { animation: none; }
+  button:active, a:active { transform: none; }
 }
 
 /* Base styles */

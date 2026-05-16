@@ -46,7 +46,7 @@ export function SiteNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-200"
+              className="relative text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-150 after:absolute after:left-0 after:-bottom-0.5 after:h-px after:w-full after:bg-(--color-accent) after:scale-x-0 after:origin-left after:transition-transform after:duration-200 hover:after:scale-x-100"
             >
               {link.label}
             </Link>
