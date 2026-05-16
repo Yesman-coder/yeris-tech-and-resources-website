@@ -1,14 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useScroll, motion } from "framer-motion";
-import { useEffect, useState } from "react";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { InfiniteSlider } from "@/components/ui/infinite-slider";
-import { ProgressiveBlur } from "@/components/ui/progressive-blur";
 import { useLanguage } from "@/components/language-provider";
-import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   const { t } = useLanguage();
@@ -68,62 +63,7 @@ export function HeroSection() {
             ref={(el) => { if (el) el.playbackRate = 0.5; }}
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/60 dark:bg-black/50" />
-        </div>
-      </div>
-      
-      {/* Logo slider section */}
-      <div className="bg-background pb-2">
-        <div className="group relative m-auto max-w-7xl px-6">
-          <div className="flex flex-col items-center md:flex-row">
-            <div className="md:max-w-44 md:border-r md:border-border md:pr-6">
-              <p className="text-end text-sm text-muted-foreground">
-                {t("Potenciando los mejores equipos", "Powering the best teams")}
-              </p>
-            </div>
-            <div className="relative py-6 md:w-[calc(100%-11rem)]">
-              <InfiniteSlider
-                speedOnHover={20}
-                speed={40}
-                gap={112}
-              >
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">NVIDIA</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">GitHub</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">Nike</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">LemonSqueezy</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">Laravel</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">OpenAI</span>
-                </div>
-                <div className="flex items-center justify-center h-8">
-                  <span className="font-mono text-sm text-muted-foreground/60 dark:text-muted-foreground">Vercel</span>
-                </div>
-              </InfiniteSlider>
-
-              <div className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-background to-transparent" />
-              <div className="absolute inset-y-0 right-0 w-20 bg-gradient-to-l from-background to-transparent" />
-              <ProgressiveBlur
-                className="pointer-events-none absolute left-0 top-0 h-full w-20"
-                direction="left"
-                blurIntensity={1}
-              />
-              <ProgressiveBlur
-                className="pointer-events-none absolute right-0 top-0 h-full w-20"
-                direction="right"
-                blurIntensity={1}
-              />
-            </div>
-          </div>
+          <div className="absolute inset-0 bg-black/70 dark:bg-black/65" />
         </div>
       </div>
     </section>
