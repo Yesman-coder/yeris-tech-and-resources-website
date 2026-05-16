@@ -24,10 +24,10 @@ export default function WorkPage() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
         <Reveal>
           <Kicker className="mb-4">Portfolio</Kicker>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg) mb-4">
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-[#1A1A1A] dark:text-[#F5F5F7] mb-4">
             Selected Work
           </h1>
-          <p className="text-base text-(--color-muted) mb-12">
+          <p className="text-base text-[#5C5C5C] dark:text-[#888899] mb-12">
             Nine projects across eight industries. Pick one.
           </p>
         </Reveal>

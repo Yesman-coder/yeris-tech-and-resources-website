@@ -74,7 +74,7 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
       >
         <Link
           href={`/work/${project.slug}`}
-          className="group relative block rounded-2xl border border-(--color-border) bg-(--color-bg-elev) overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-(--color-accent) hover:shadow-[0_8px_32px_-8px_oklch(0.78_0.18_75/0.25)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-(--color-accent) focus-visible:outline-offset-2"
+          className="group relative block rounded-2xl border border-black/10 dark:border-white/10 bg-white dark:bg-[#16161F] overflow-hidden transition-[border-color,box-shadow] duration-200 hover:border-[#E85D04] dark:hover:border-[#9D4EDD] hover:shadow-[0_8px_32px_-8px_rgba(232,93,4,0.25)] dark:hover:shadow-[0_8px_32px_-8px_rgba(157,78,221,0.25)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-[#E85D04] dark:focus-visible:outline-[#9D4EDD] focus-visible:outline-offset-2"
         >
           {/* Spotlight overlay */}
           <motion.div
@@ -98,13 +98,13 @@ export function ProjectCard({ project, priority = false }: ProjectCardProps) {
             <Kicker className="mb-2">
               {project.industry} · {project.year}
             </Kicker>
-            <h3 className="text-xl font-medium text-(--color-fg) mb-1 group-hover:text-(--color-accent) transition-colors duration-200">
+            <h3 className="text-xl font-medium text-[#1A1A1A] dark:text-[#F5F5F7] mb-1 group-hover:text-[#E85D04] dark:group-hover:text-[#9D4EDD] transition-colors duration-200">
               {project.title}
             </h3>
-            <p className="text-sm text-(--color-muted) leading-relaxed mb-4">
+            <p className="text-sm text-[#5C5C5C] dark:text-[#888899] leading-relaxed mb-4">
               {project.tagline}
             </p>
-            <span className="text-sm font-mono text-(--color-accent) group-hover:underline">
+            <span className="text-sm font-mono text-[#E85D04] dark:text-[#9D4EDD] group-hover:underline">
               View case study →
             </span>
           </div>

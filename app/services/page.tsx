@@ -65,16 +65,16 @@ export default function ServicesPage() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
         <Reveal>
           <Kicker className="mb-4">What we do</Kicker>
-          <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-(--color-fg) leading-[1.02] mb-6">
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-[#1A1A1A] dark:text-[#F5F5F7] leading-[1.02] mb-6">
             Services
           </h1>
-          <p className="text-base text-(--color-muted) max-w-xl leading-relaxed">
+          <p className="text-base text-[#5C5C5C] dark:text-[#888899] max-w-xl leading-relaxed">
             We ship working products. Pick the service that fits your project.
           </p>
         </Reveal>
       </section>
 
-      <div className="border-t border-(--color-border)">
+      <div className="border-t border-black/10 dark:border-white/10">
         {serviceData.map((svc, idx) => {
           const related = projects.filter((p) =>
             p.services.some((s) =>
@@ -87,32 +87,32 @@ export default function ServicesPage() {
             <section
               key={svc.id}
               id={svc.id}
-              className="border-b border-(--color-border)"
+              className="border-b border-black/10 dark:border-white/10"
             >
               <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-20 md:py-28">
                 <Reveal>
                   <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 items-start">
                     {/* Left: number + icon */}
                     <div className="flex lg:flex-col items-center lg:items-start gap-4 lg:gap-6 lg:pt-1">
-                      <span className="text-5xl font-mono font-medium text-(--color-accent) tabular-nums leading-none">
+                      <span className="text-5xl font-mono font-medium text-[#E85D04] dark:text-[#9D4EDD] tabular-nums leading-none">
                         {svc.number}
                       </span>
                       <Icon
                         size={28}
                         weight="light"
-                        className="text-(--color-muted)"
+                        className="text-[#5C5C5C] dark:text-[#888899]"
                         aria-hidden
                       />
                     </div>
 
                     {/* Right: content */}
                     <div>
-                      <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg) mb-8 leading-tight">
+                      <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-[#1A1A1A] dark:text-[#F5F5F7] mb-8 leading-tight">
                         {svc.title}
                       </h2>
                       <div className="flex flex-col gap-4 max-w-2xl mb-12">
                         {svc.description.map((para, i) => (
-                          <p key={i} className="text-base text-(--color-muted) leading-relaxed">
+                          <p key={i} className="text-base text-[#5C5C5C] dark:text-[#888899] leading-relaxed">
                             {para}
                           </p>
                         ))}
