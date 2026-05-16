@@ -26,12 +26,12 @@ const questions: Question[] = [
     questionEn: "What type of project are you building?",
     questionEs: "¿Qué tipo de proyecto quieres construir?",
     options: [
-      { labelEn: "Landing page / Marketing site", labelEs: "Landing page / Sitio de marketing", value: "landing", multiplier: 1 },
-      { labelEn: "Web application", labelEs: "Aplicación web", value: "webapp", multiplier: 2.5 },
-      { labelEn: "E-commerce store", labelEs: "Tienda de e-commerce", value: "ecommerce", multiplier: 2 },
-      { labelEn: "AI automation / Agents", labelEs: "Automatización con IA / Agentes", value: "ai", multiplier: 3 },
-      { labelEn: "Mobile app", labelEs: "Aplicación móvil", value: "mobile", multiplier: 3.5 },
-      { labelEn: "Something else", labelEs: "Otro tipo de proyecto", value: "other", multiplier: 2 },
+      { labelEn: "Landing page / Marketing site", labelEs: "Landing page / Sitio de marketing", value: "landing", multiplier: 0 },
+      { labelEn: "Web application", labelEs: "Aplicación web", value: "webapp", multiplier: 400 },
+      { labelEn: "E-commerce store", labelEs: "Tienda de e-commerce", value: "ecommerce", multiplier: 350 },
+      { labelEn: "AI automation / Agents", labelEs: "Automatización con IA / Agentes", value: "ai", multiplier: 500 },
+      { labelEn: "Mobile app", labelEs: "Aplicación móvil", value: "mobile", multiplier: 600 },
+      { labelEn: "Something else", labelEs: "Otro tipo de proyecto", value: "other", multiplier: 300 },
     ],
   },
   {
@@ -39,10 +39,10 @@ const questions: Question[] = [
     questionEn: "How complex is your project?",
     questionEs: "¿Qué tan complejo es tu proyecto?",
     options: [
-      { labelEn: "Simple (1-3 pages, basic features)", labelEs: "Simple (1-3 páginas, funciones básicas)", value: "simple", multiplier: 1 },
-      { labelEn: "Medium (5-10 pages, user auth, database)", labelEs: "Medio (5-10 páginas, autenticación, base de datos)", value: "medium", multiplier: 1.8 },
-      { labelEn: "Complex (Many features, integrations, admin panel)", labelEs: "Complejo (Muchas funciones, integraciones, panel admin)", value: "complex", multiplier: 2.5 },
-      { labelEn: "Enterprise (Large scale, multiple systems)", labelEs: "Empresarial (Gran escala, múltiples sistemas)", value: "enterprise", multiplier: 4 },
+      { labelEn: "Simple (1-3 pages, basic features)", labelEs: "Simple (1-3 páginas, funciones básicas)", value: "simple", multiplier: 0 },
+      { labelEn: "Medium (5-10 pages, user auth, database)", labelEs: "Medio (5-10 páginas, autenticación, base de datos)", value: "medium", multiplier: 300 },
+      { labelEn: "Complex (Many features, integrations, admin panel)", labelEs: "Complejo (Muchas funciones, integraciones, panel admin)", value: "complex", multiplier: 600 },
+      { labelEn: "Enterprise (Large scale, multiple systems)", labelEs: "Empresarial (Gran escala, múltiples sistemas)", value: "enterprise", multiplier: 900 },
     ],
   },
   {
@@ -50,10 +50,10 @@ const questions: Question[] = [
     questionEn: "What level of design do you need?",
     questionEs: "¿Qué nivel de diseño necesitas?",
     options: [
-      { labelEn: "I have designs ready", labelEs: "Ya tengo diseños listos", value: "ready", multiplier: 1 },
-      { labelEn: "Basic / Template-based", labelEs: "Básico / Basado en plantillas", value: "basic", multiplier: 1.2 },
-      { labelEn: "Custom design", labelEs: "Diseño personalizado", value: "custom", multiplier: 1.5 },
-      { labelEn: "Premium branding + design", labelEs: "Branding premium + diseño", value: "premium", multiplier: 2 },
+      { labelEn: "I have designs ready", labelEs: "Ya tengo diseños listos", value: "ready", multiplier: 0 },
+      { labelEn: "Basic / Template-based", labelEs: "Básico / Basado en plantillas", value: "basic", multiplier: 100 },
+      { labelEn: "Custom design", labelEs: "Diseño personalizado", value: "custom", multiplier: 250 },
+      { labelEn: "Premium branding + design", labelEs: "Branding premium + diseño", value: "premium", multiplier: 400 },
     ],
   },
   {
@@ -61,10 +61,10 @@ const questions: Question[] = [
     questionEn: "What's your ideal timeline?",
     questionEs: "¿Cuál es tu timeline ideal?",
     options: [
-      { labelEn: "ASAP (Rush project)", labelEs: "Lo antes posible (Proyecto urgente)", value: "asap", multiplier: 1.5 },
-      { labelEn: "2-4 weeks", labelEs: "2-4 semanas", value: "fast", multiplier: 1.2 },
-      { labelEn: "1-2 months", labelEs: "1-2 meses", value: "normal", multiplier: 1 },
-      { labelEn: "3+ months (flexible)", labelEs: "3+ meses (flexible)", value: "flexible", multiplier: 0.9 },
+      { labelEn: "ASAP (Rush project)", labelEs: "Lo antes posible (Proyecto urgente)", value: "asap", multiplier: 300 },
+      { labelEn: "2-4 weeks", labelEs: "2-4 semanas", value: "fast", multiplier: 150 },
+      { labelEn: "1-2 months", labelEs: "1-2 meses", value: "normal", multiplier: 0 },
+      { labelEn: "3+ months (flexible)", labelEs: "3+ meses (flexible)", value: "flexible", multiplier: -50 },
     ],
   },
   {
@@ -72,35 +72,42 @@ const questions: Question[] = [
     questionEn: "Which features do you need?",
     questionEs: "¿Qué características necesitas?",
     options: [
-      { labelEn: "User authentication", labelEs: "Autenticación de usuarios", value: "auth", multiplier: 1.15 },
-      { labelEn: "Payment processing", labelEs: "Procesamiento de pagos", value: "payments", multiplier: 1.2 },
-      { labelEn: "Third-party integrations", labelEs: "Integraciones con terceros", value: "integrations", multiplier: 1.25 },
-      { labelEn: "Admin dashboard", labelEs: "Panel de administración", value: "admin", multiplier: 1.3 },
+      { labelEn: "User authentication", labelEs: "Autenticación de usuarios", value: "auth", multiplier: 100 },
+      { labelEn: "Payment processing", labelEs: "Procesamiento de pagos", value: "payments", multiplier: 150 },
+      { labelEn: "Third-party integrations", labelEs: "Integraciones con terceros", value: "integrations", multiplier: 100 },
+      { labelEn: "Admin dashboard", labelEs: "Panel de administración", value: "admin", multiplier: 200 },
     ],
   },
 ];
 
-const BASE_PRICE = 3000;
+// Base price for simplest project (landing page, simple, designs ready, normal timeline, no extra features)
+const BASE_PRICE = 500;
+const MAX_PRICE = 3000;
 
 function calculateEstimate(answers: Record<string, string[]>): { min: number; max: number } {
-  let multiplier = 1;
+  let additionalCost = 0;
   
+  // Add up all the additional costs from selected options
   Object.entries(answers).forEach(([questionId, selectedValues]) => {
     const question = questions.find(q => q.id === questionId);
     if (question) {
       selectedValues.forEach(value => {
         const option = question.options.find(o => o.value === value);
         if (option) {
-          multiplier *= option.multiplier;
+          additionalCost += option.multiplier;
         }
       });
     }
   });
 
-  const baseEstimate = BASE_PRICE * multiplier;
+  const totalEstimate = BASE_PRICE + additionalCost;
+  
+  // Cap the price at MAX_PRICE
+  const cappedEstimate = Math.min(totalEstimate, MAX_PRICE);
+  
   return {
-    min: Math.round(baseEstimate * 0.85 / 100) * 100,
-    max: Math.round(baseEstimate * 1.25 / 100) * 100,
+    min: Math.round(cappedEstimate * 0.9 / 50) * 50,
+    max: Math.min(Math.round(cappedEstimate * 1.15 / 50) * 50, MAX_PRICE),
   };
 }
 
@@ -168,11 +175,10 @@ export default function EstimatorPage() {
     };
     
     const budgetMap = (min: number): string => {
-      if (min < 5000) return "< $5k";
-      if (min < 15000) return "$5k–$15k";
-      if (min < 30000) return "$15k–$30k";
-      if (min < 75000) return "$30k–$75k";
-      return "$75k+";
+      if (min < 750) return "< $750";
+      if (min < 1500) return "$750–$1,500";
+      if (min < 2500) return "$1,500–$2,500";
+      return "$2,500–$3,000";
     };
 
     const summaryParts = Object.entries(answers).map(([qId, values]) => {
