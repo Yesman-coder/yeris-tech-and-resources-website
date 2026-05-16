@@ -31,7 +31,7 @@ const clientNames = [
 const services = [
   {
     title: "Web Design & Development",
-    description: "From landing pages to full web apps — built fast, built to last.",
+    description: "From landing pages to full web apps, built fast and built to last.",
     anchor: "web-design",
   },
   {
@@ -70,42 +70,65 @@ export default function HomePage() {
           />
         </div>
 
-        <HeroEntrance index={0}>
-          <h1 className="text-6xl md:text-8xl font-medium tracking-tight text-(--color-fg) leading-[1.05] mb-8 max-w-5xl">
-            We build the things companies wish they&apos;d already{" "}
-            <span className="text-(--color-accent)">shipped.</span>
-          </h1>
-        </HeroEntrance>
-        <HeroEntrance index={1}>
-          <p className="text-xl md:text-2xl text-(--color-muted) leading-relaxed max-w-2xl mb-10">
-            A product studio for founders who don&apos;t have time to hire a team.
-          </p>
-        </HeroEntrance>
-        <HeroEntrance index={2}>
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button
-              asChild
-              size="lg"
-              className="bg-(--color-accent) text-(--color-accent-fg) hover:opacity-90 transition-opacity font-medium text-base px-8 py-4 h-auto rounded-2xl"
-            >
-              <Link href="/contact">Start a project →</Link>
-            </Button>
-            <Link
-              href="/work"
-              className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors"
-            >
-              View all work
-            </Link>
+        <div className="flex justify-between gap-16">
+          {/* Left: all hero content */}
+          <div className="flex flex-col min-w-0 flex-1">
+            <HeroEntrance index={0}>
+              <h1 className="text-6xl md:text-8xl font-medium tracking-tight text-(--color-fg) leading-[1.05] mb-8 max-w-5xl">
+                We build the things companies wish they&apos;d already{" "}
+                <span className="text-(--color-accent)">shipped.</span>
+              </h1>
+            </HeroEntrance>
+            <HeroEntrance index={1}>
+              <p className="text-xl md:text-2xl text-(--color-muted) leading-relaxed max-w-2xl mb-10">
+                A product studio for founders who don&apos;t have time to hire a team.
+              </p>
+            </HeroEntrance>
+            <HeroEntrance index={2}>
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-(--color-accent) text-(--color-accent-fg) hover:opacity-90 transition-opacity font-medium text-base px-8 py-4 h-auto rounded-2xl"
+                >
+                  <Link href="/contact">Start a project →</Link>
+                </Button>
+                <Link
+                  href="/work"
+                  className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors"
+                >
+                  View all work
+                </Link>
+              </div>
+            </HeroEntrance>
+            <HeroEntrance index={3}>
+              <div className="mt-16 pt-8 border-t border-(--color-border)">
+                <p className="text-sm font-mono text-(--color-muted) tracking-[0.12em]">
+                  <span className="text-(--color-fg)">9</span> projects shipped{" "}
+                  <span className="opacity-40 mx-2">·</span>{" "}
+                  <span className="text-(--color-fg)">8</span> industries{" "}
+                  <span className="opacity-40 mx-2">·</span>{" "}
+                  Florida &amp; worldwide
+                </p>
+              </div>
+            </HeroEntrance>
           </div>
-        </HeroEntrance>
-        <HeroEntrance index={3}>
-          <div className="mt-16 pt-8 border-t border-(--color-border)">
-            <p className="text-sm font-mono text-(--color-muted) tracking-[0.12em]">
-              9 projects shipped · 8 industries · Florida & worldwide
-            </p>
+
+          {/* Right: service preview anchored to bottom, lg+ only */}
+          <div className="hidden lg:flex flex-col justify-end items-end gap-3 shrink-0 pb-2">
+            {services.map((svc) => (
+              <Link
+                key={svc.anchor}
+                href={`/services#${svc.anchor}`}
+                className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-muted) hover:text-(--color-accent) transition-colors duration-150 text-right"
+              >
+                {svc.title}
+              </Link>
+            ))}
           </div>
-        </HeroEntrance>
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-start gap-1">
+        </div>
+
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-1">
           <span className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-muted)">
             Selected work
           </span>
@@ -116,10 +139,21 @@ export default function HomePage() {
       {/* Selected Work */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
         <Reveal>
-          <Kicker className="mb-4">Selected work</Kicker>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg) mb-12">
-            Four projects worth your time.
-          </h2>
+          <div className="flex items-end justify-between mb-12">
+            <div>
+              <Kicker className="mb-4">Selected work</Kicker>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg)">
+                Four projects worth your time.
+              </h2>
+            </div>
+            <span
+              className="hidden md:block text-[96px] font-mono font-medium leading-none select-none"
+              style={{ color: "oklch(0.78 0.18 75 / 0.12)" }}
+              aria-hidden="true"
+            >
+              04
+            </span>
+          </div>
         </Reveal>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredProjects.map((project, i) => {
@@ -169,10 +203,10 @@ export default function HomePage() {
                 href={`/services#${svc.anchor}`}
                 className="group flex gap-8 items-start p-8 hover:bg-(--color-bg-elev) transition-colors duration-200 h-full"
               >
-                <span className="text-5xl font-medium font-mono text-(--color-accent) shrink-0 tabular-nums leading-none">
+                <span className="text-6xl md:text-7xl font-medium font-mono text-(--color-accent) shrink-0 tabular-nums leading-none">
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <div className="pt-2">
+                <div className="pt-3">
                   <h3 className="text-lg font-medium text-(--color-fg) mb-2 group-hover:text-(--color-accent) transition-colors duration-200">
                     {svc.title}
                   </h3>
@@ -194,42 +228,49 @@ export default function HomePage() {
         <Marquee items={clientNames} />
       </section>
 
-      {/* About teaser */}
-      <section className="border-t border-(--color-border)">
+      {/* Team */}
+      <section className="border-t border-(--color-border) bg-(--color-bg-elev)">
         <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-            <Reveal>
-              <div className="flex gap-4 max-w-xs">
-                <div
-                  className="flex-1 aspect-square rounded-2xl border border-(--color-border) bg-gradient-to-br from-(--color-bg-elev) to-(--color-bg) flex items-center justify-center"
-                  aria-label="Yesman Utrera portrait placeholder"
-                >
-                  <span className="text-2xl font-mono text-(--color-muted)">YU</span>
-                </div>
-                <div
-                  className="flex-1 aspect-square rounded-2xl border border-(--color-border) bg-gradient-to-br from-(--color-bg-elev) to-(--color-bg) flex items-center justify-center"
-                  aria-label="Boris Bruno portrait placeholder"
-                >
-                  <span className="text-2xl font-mono text-(--color-muted)">BB</span>
-                </div>
-              </div>
+          <Reveal>
+            <Kicker className="mb-16">The team</Kicker>
+          </Reveal>
+          <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-(--color-border)">
+            <Reveal className="border-b lg:border-b-0 lg:border-r border-(--color-border) py-12 lg:pr-16">
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-6">
+                Project Management
+              </p>
+              <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight mb-4">
+                Yesman Utrera
+              </h3>
+              <p className="text-base text-(--color-muted) leading-relaxed max-w-sm">
+                Keeps every build on schedule and every client in the loop. Scope, communication, delivery: that&apos;s the lane.
+              </p>
             </Reveal>
-            <Reveal delay={0.1}>
-              <Kicker className="mb-4">About</Kicker>
-              <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg) mb-6">
-                Two disciplines. End-to-end.
-              </h2>
-              <p className="text-base text-(--color-muted) leading-relaxed mb-6">
-                Yeris Tech & Resources LLC is run by Yesman Utrera and Boris Bruno — a seasoned project manager and a senior developer who share resources, experience, and a track record of shipping. Nine clients across eight industries. Every project lands in production.
+            <Reveal delay={0.1} className="py-12 lg:pl-16">
+              <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-6">
+                Senior Development
+              </p>
+              <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight mb-4">
+                Boris Bruno
+              </h3>
+              <p className="text-base text-(--color-muted) leading-relaxed max-w-sm">
+                Architecture decisions, production-grade code, and the engineering depth to tackle whatever the project demands.
+              </p>
+            </Reveal>
+          </div>
+          <Reveal delay={0.15}>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-12 border-t border-(--color-border) mt-12">
+              <p className="text-sm text-(--color-muted)">
+                9 projects shipped across 8 industries.
               </p>
               <Link
                 href="/about"
-                className="text-sm font-mono text-(--color-accent) hover:underline"
+                className="text-sm font-mono text-(--color-accent) hover:underline shrink-0"
               >
-                More about Yeris →
+                Meet the team →
               </Link>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 
