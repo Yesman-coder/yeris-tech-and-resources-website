@@ -48,6 +48,19 @@
   animation-play-state: paused;
 }
 
+@keyframes marquee-reverse {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 48s linear infinite;
+}
+
+.animate-marquee-reverse:hover {
+  animation-play-state: paused;
+}
+
 /* Scroll indicator bounce */
 @keyframes bounce-y {
   0%, 100% { transform: translateY(0); }
@@ -76,10 +89,11 @@ a:active {
 
 /* Reduced-motion overrides */
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee  { animation: none; }
-  .animate-bounce-y { animation: none; }
-  .hero-glow        { animation: none; }
-  button:active, a:active { transform: none; }
+  .animate-marquee         { animation: none; }
+  .animate-marquee-reverse { animation: none; }
+  .animate-bounce-y        { animation: none; }
+  .hero-glow               { animation: none; }
+  button:active, a:active  { transform: none; }
 }
 
 /* Base styles */

@@ -7,7 +7,10 @@ import { Marquee } from "@/components/marquee";
 import { Reveal } from "@/components/reveal";
 import { HeroEntrance } from "@/components/hero-entrance";
 import { Kicker } from "@/components/kicker";
-import { Button } from "@/components/ui/button";
+import { HeroGlow } from "@/components/hero-glow";
+import { ScrambleText } from "@/components/scramble-text";
+import { MagneticButton } from "@/components/magnetic-button";
+import { CountUpNumber } from "@/components/count-up-number";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
@@ -55,27 +58,16 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-        {/* Ambient glow */}
-        <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10" aria-hidden="true">
-          <div
-            className="hero-glow absolute rounded-full blur-[160px]"
-            style={{
-              top: "-200px",
-              left: "-200px",
-              width: "800px",
-              height: "800px",
-              background: "oklch(0.78 0.18 75 / 1)",
-            }}
-          />
-        </div>
+      <section className="relative min-h-[calc(100dvh-4rem)] flex flex-col justify-center max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
+        {/* Ambient glow — follows mouse */}
+        <HeroGlow />
 
         <div className="flex justify-between gap-16">
           {/* Left: all hero content */}
           <div className="flex flex-col min-w-0 flex-1">
             <HeroEntrance index={0}>
               <h1 className="text-6xl md:text-8xl font-medium tracking-tight text-(--color-fg) leading-[1.05] mb-8 max-w-5xl">
-                We build the things companies wish they&apos;d already{" "}
+                <ScrambleText text="We build the things companies wish they'd already " delay={200} />{" "}
                 <span className="text-(--color-accent)">shipped.</span>
               </h1>
             </HeroEntrance>
@@ -86,13 +78,7 @@ export default function HomePage() {
             </HeroEntrance>
             <HeroEntrance index={2}>
               <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-(--color-accent) text-(--color-accent-fg) hover:opacity-90 transition-opacity font-medium text-base px-8 py-4 h-auto rounded-2xl"
-                >
-                  <Link href="/contact">Start a project →</Link>
-                </Button>
+                <MagneticButton href="/contact">Start a project →</MagneticButton>
                 <Link
                   href="/work"
                   className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors"
@@ -203,9 +189,10 @@ export default function HomePage() {
                 href={`/services#${svc.anchor}`}
                 className="group flex gap-8 items-start p-8 hover:bg-(--color-bg-elev) transition-colors duration-200 h-full"
               >
-                <span className="text-6xl md:text-7xl font-medium font-mono text-(--color-accent) shrink-0 tabular-nums leading-none">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
+                <CountUpNumber
+                  to={i + 1}
+                  className="text-6xl md:text-7xl font-medium font-mono text-(--color-accent) shrink-0 tabular-nums leading-none"
+                />
                 <div className="pt-3">
                   <h3 className="text-lg font-medium text-(--color-fg) mb-2 group-hover:text-(--color-accent) transition-colors duration-200">
                     {svc.title}
