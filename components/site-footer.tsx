@@ -8,9 +8,19 @@ export function SiteFooter() {
         <div className="flex flex-col gap-2">
           <Link
             href="/"
-            className="text-base font-medium text-(--color-fg) hover:text-(--color-accent) transition-colors duration-200 w-fit"
+            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-200 w-fit"
           >
-            Yeris<span className="text-(--color-accent)">.</span>
+            <img
+              src="/logo.png"
+              alt="Yeris Tech logo"
+              width={32}
+              height={32}
+              className="rounded-sm object-contain"
+              style={{ width: 32, height: 32 }}
+            />
+            <span className="text-base font-medium text-(--color-fg)">
+              Yeris<span className="text-(--color-accent)">.</span>
+            </span>
           </Link>
           <p className="text-xs text-(--color-muted) font-mono">
             © {new Date().getFullYear()} Yeris Tech &amp; Resources LLC

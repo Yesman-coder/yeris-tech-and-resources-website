@@ -35,10 +35,20 @@ export function SiteNav() {
       >
         <Link
           href="/"
-          className="text-lg font-medium tracking-tight text-(--color-fg) hover:text-(--color-accent) transition-colors duration-200"
+          className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-200"
           aria-label="Yeris Tech home"
         >
-          Yeris<span className="text-(--color-accent)">.</span>
+          <img
+            src="/logo.png"
+            alt="Yeris Tech logo"
+            width={28}
+            height={28}
+            className="rounded-sm object-contain"
+            style={{ width: 28, height: 28 }}
+          />
+          <span className="text-lg font-medium tracking-tight text-(--color-fg)">
+            Yeris<span className="text-(--color-accent)">.</span>
+          </span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
