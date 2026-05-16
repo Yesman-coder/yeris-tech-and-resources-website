@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Kicker } from "@/components/kicker";
-import { Reveal } from "@/components/reveal";
-import { CtaStrip } from "@/components/cta-strip";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Yeris Tech & Resources LLC — a product studio powered by Yesman Utrera (project management) and Boris Bruno (senior development). Nine clients, eight industries, every project shipped.",
+    "Yeris Tech & Resources LLC — a product studio powered by Yesman Utrera (project management) and Boris Bruno (senior development). 14 shipments, 8 industries, every project shipped.",
 };
 
 const principles = [
@@ -34,148 +32,220 @@ const howWeWork = [
 
 export default function AboutPage() {
   return (
-    <>
+    <div className="bg-(--color-bg) min-h-screen">
       {/* Hero */}
-      <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-16 items-start">
+      <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-7 pt-24 pb-16">
+        {/* Eyebrow */}
+        <div className="font-mono text-[11px] text-(--color-muted) tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-(--color-accent)">¶</span>
+          <span className="font-serif italic mx-2.5">vii.</span>
+          <span className="text-(--color-border-strong)">—</span>
+          <span className="mx-2.5">about</span>
+          <span className="ml-auto text-(--color-muted-subtle)">the studio behind the shipments</span>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
           <div>
-            <Reveal>
-              <Kicker className="mb-4">About</Kicker>
-              <h1 className="text-4xl md:text-6xl font-medium tracking-tight text-(--color-fg) mb-8 leading-[1.05]">
-                Two disciplines. One studio. Every project shipped.
-              </h1>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <div className="flex flex-col gap-4 text-base text-(--color-muted) leading-relaxed max-w-2xl">
-                <p>
-                  Yeris Tech & Resources LLC is built on the partnership of Yesman Utrera and Boris Bruno. Yesman brings seasoned project management — scoping, client communication, delivery timelines, and keeping every build on track. Boris brings the senior development muscle — architecture decisions, production-grade code, and the engineering depth to tackle whatever the project requires.
-                </p>
-                <p>
-                  Together they cover the full stack of a product build, from first discovery call to final deployment. No outsourcing the hard parts, no handing you off mid-project — the same two people who scope the work are the ones who ship it.
-                </p>
-                <p>
-                  The studio works with SMB founders and operators who need something real built, fast. Nine clients across eight industries — from non-profit donation flows to production AI agents to fitness e-commerce. Every project ends in production.
-                </p>
-              </div>
-            </Reveal>
+            <h1 className="font-serif text-[clamp(40px,8vw,60px)] leading-[0.99] tracking-[-0.02em] font-normal text-(--color-fg) mb-10">
+              Two disciplines.<br/>
+              <span className="italic text-(--color-italic)">One studio.</span><br/>
+              Every project <span className="italic text-(--color-accent)">shipped.</span>
+            </h1>
+            
+            <div className="flex flex-col gap-5 text-[15px] text-(--color-muted) leading-[1.7] max-w-2xl">
+              <p>
+                Yeris Tech & Resources LLC is built on the partnership of Yesman Utrera and Boris Bruno. Yesman brings seasoned project management — scoping, client communication, delivery timelines, and keeping every build on track. Boris brings the senior development muscle — architecture decisions, production-grade code, and the engineering depth to tackle whatever the project requires.
+              </p>
+              <p>
+                Together they cover the full stack of a product build, from first discovery call to final deployment. No outsourcing the hard parts, no handing you off mid-project — the same two people who scope the work are the ones who ship it.
+              </p>
+              <p>
+                The studio works with SMB founders and operators who need something real built, fast. 14 shipments across 8 industries — from non-profit donation flows to production AI agents to fitness e-commerce. Every project ends in production.
+              </p>
+            </div>
           </div>
 
-          <Reveal delay={0.15}>
-            <div className="flex flex-col gap-6 sticky top-24">
-              <div>
-                <img
-                  src="/yesman-utrera.png"
+          {/* Team photos */}
+          <div className="flex flex-col gap-8 lg:sticky lg:top-24">
+            <div>
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-(--color-border-accent)">
+                <Image
+                  src="/images/yesman-portrait.jpg"
                   alt="Yesman Utrera"
-                  className="w-full aspect-square rounded-2xl object-cover object-top border border-(--color-border)"
+                  fill
+                  className="object-cover object-top"
                 />
-                <p className="text-xs font-mono text-(--color-muted) mt-2 text-center">
-                  Yesman Utrera — Project Management
-                </p>
               </div>
-              <div>
-                <img
-                  src="/boris-bruno.png"
-                  alt="Boris Bruno"
-                  className="w-full aspect-square rounded-2xl object-cover object-top border border-(--color-border)"
-                />
-                <p className="text-xs font-mono text-(--color-muted) mt-2 text-center">
-                  Boris Bruno — Senior Development
+              <div className="mt-4">
+                <p className="font-mono text-[10px] text-(--color-accent) tracking-[0.2em] mb-1">
+                  PROJECT MANAGEMENT
+                </p>
+                <p className="font-serif text-[24px] text-(--color-fg)">
+                  Yesman Utrera
                 </p>
               </div>
             </div>
-          </Reveal>
+            <div>
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-(--color-border-accent)">
+                <Image
+                  src="/images/developer-portrait.jpg"
+                  alt="Boris Bruno"
+                  fill
+                  className="object-cover object-top"
+                />
+              </div>
+              <div className="mt-4">
+                <p className="font-mono text-[10px] text-(--color-accent) tracking-[0.2em] mb-1">
+                  SENIOR DEVELOPMENT
+                </p>
+                <p className="font-serif text-[24px] text-(--color-fg)">
+                  Boris Bruno
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Principles */}
-      <section className="border-t border-(--color-border) bg-(--color-bg-elev)">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-          <Reveal>
-            <Kicker className="mb-4">How we think</Kicker>
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg) mb-12">
-              Principles
-            </h2>
-          </Reveal>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <section className="section">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="eyebrow">
+            <span className="text-(--color-accent)">¶</span>
+            <span className="font-serif italic mx-2.5">viii.</span>
+            <span className="text-(--color-border-strong)">—</span>
+            <span className="mx-2.5">principles</span>
+          </div>
+          
+          <h2 className="section-heading max-w-[480px] mb-14">
+            How we <span className="italic-accent">think.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {principles.map((p, i) => (
-              <Reveal key={p.title} delay={i * 0.08}>
-                <div className="flex flex-col gap-3">
-                  <h3 className="text-lg font-medium text-(--color-accent)">{p.title}</h3>
-                  <p className="text-sm text-(--color-muted) leading-relaxed">{p.body}</p>
+              <div key={p.title}>
+                <div className="font-mono text-[11px] text-(--color-accent) tracking-[0.2em] mb-4">
+                  {["i.", "ii.", "iii."][i]}
                 </div>
-              </Reveal>
+                <h3 className="font-serif text-[24px] leading-[1.1] text-(--color-fg) mb-3">
+                  {p.title}
+                </h3>
+                <p className="text-[13px] text-(--color-muted) leading-[1.65]">
+                  {p.body}
+                </p>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
       {/* How we work */}
-      <section className="border-t border-(--color-border)">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-          <Reveal>
-            <Kicker className="mb-4">The process</Kicker>
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg) mb-12">
-              How we work
-            </h2>
-          </Reveal>
-          <ol className="flex flex-col gap-8 max-w-2xl">
+      <section className="section">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="eyebrow">
+            <span className="text-(--color-accent)">¶</span>
+            <span className="font-serif italic mx-2.5">ix.</span>
+            <span className="text-(--color-border-strong)">—</span>
+            <span className="mx-2.5">process</span>
+          </div>
+          
+          <h2 className="section-heading max-w-[480px] mb-14">
+            How we <span className="italic-accent">work.</span>
+          </h2>
+
+          <ol className="flex flex-col max-w-2xl">
             {howWeWork.map((step, i) => (
-              <Reveal key={i} delay={i * 0.08}>
-                <li className="flex items-start gap-6">
-                  <span className="text-2xl font-mono tabular-nums text-(--color-accent) shrink-0 w-8">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="text-base text-(--color-muted) leading-relaxed pt-1">{step}</p>
-                </li>
-              </Reveal>
+              <li 
+                key={i} 
+                className={`flex items-start gap-6 py-6 border-t border-(--color-border) ${i === howWeWork.length - 1 ? 'border-b' : ''}`}
+              >
+                <span className="font-mono text-[11px] text-(--color-muted-subtle) tracking-[0.12em] pt-1 shrink-0">
+                  [ {String(i + 1).padStart(2, "0")} ]
+                </span>
+                <p className="text-[14px] text-(--color-muted) leading-[1.65]">
+                  {step}
+                </p>
+              </li>
             ))}
           </ol>
-          <div className="mt-12">
+
+          <div className="mt-10">
             <Link
               href="/contact"
-              className="text-sm font-mono text-(--color-accent) hover:underline"
+              className="link-hover text-[12px] text-(--color-accent) tracking-[0.04em] border-b border-(--color-border-strong) pb-0.5"
             >
-              Start a project →
+              Start a project &nbsp;&rarr;
             </Link>
           </div>
         </div>
       </section>
 
       {/* Partnership */}
-      <section className="border-t border-(--color-border)">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-          <Reveal>
-            <Kicker className="mb-4">Partners</Kicker>
-            <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg) mb-6">
-              Extended reach when the project calls for it.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <p className="text-base text-(--color-muted) leading-relaxed max-w-2xl mb-8">
-              Yeris works in close partnership with{" "}
+      <section className="section">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="eyebrow">
+            <span className="text-(--color-accent)">¶</span>
+            <span className="font-serif italic mx-2.5">x.</span>
+            <span className="text-(--color-border-strong)">—</span>
+            <span className="mx-2.5">partner</span>
+          </div>
+          
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
+            <div>
+              <h2 className="section-heading max-w-[480px] mb-6">
+                Extended reach when the project <span className="italic-accent">calls for it.</span>
+              </h2>
+              <p className="text-[14px] text-(--color-muted) leading-[1.65] max-w-md mb-8">
+                Yeris works in close partnership with{" "}
+                <a
+                  href="https://www.thewaveestudio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-(--color-fg) hover:text-(--color-accent) transition-colors underline underline-offset-4"
+                >
+                  The Wave Estudio
+                </a>
+                {" "}— a creative studio that extends our capabilities in design, branding, and visual production. When a project needs that extra layer of craft, we have the right team already in the room.
+              </p>
               <a
                 href="https://www.thewaveestudio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-(--color-fg) hover:text-(--color-accent) transition-colors underline underline-offset-4"
+                className="link-hover text-[12px] text-(--color-accent) tracking-[0.04em] border-b border-(--color-border-strong) pb-0.5"
               >
-                The Wave Estudio
+                Visit The Wave Estudio &nbsp;&rarr;
               </a>
-              {" "}— a creative studio that extends our capabilities in design, branding, and visual production. When a project needs that extra layer of craft, we have the right team already in the room.
-            </p>
-            <a
-              href="https://www.thewaveestudio.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-mono text-(--color-accent) hover:underline"
-            >
-              Visit The Wave Estudio →
-            </a>
-          </Reveal>
+            </div>
+            <div className="flex justify-center items-center bg-(--color-bg-elev) rounded-2xl p-12 border border-(--color-border-accent)">
+              <Image
+                src="/images/wave-estudio.webp"
+                alt="The Wave Estudio"
+                width={200}
+                height={80}
+                className="opacity-80"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
-      <CtaStrip />
-    </>
+      {/* CTA */}
+      <section className="section py-24">
+        <div className="max-w-[1400px] mx-auto text-center">
+          <h2 className="font-serif text-[clamp(36px,7vw,54px)] leading-none tracking-[-0.02em] font-normal text-(--color-fg) mb-5">
+            Ready to <span className="italic text-(--color-accent)">build?</span>
+          </h2>
+          <p className="font-serif text-[19px] italic text-(--color-italic) max-w-[400px] mx-auto leading-[1.4] mb-10">
+            {"Let's talk about your project."}
+          </p>
+          <Link
+            href="/contact"
+            className="cta-hover inline-block bg-(--color-accent-hover) px-8 py-4 rounded-full text-[14px] font-medium text-white"
+          >
+            Start a project &nbsp;&rarr;
+          </Link>
+        </div>
+      </section>
+    </div>
   );
 }

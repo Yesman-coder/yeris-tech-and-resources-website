@@ -10,35 +10,35 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Yeris Tech & Resources LLC — Product Studio",
+    default: "Yeris Tech & Resources — Product Studio",
     template: "%s — Yeris Tech",
   },
   description:
-    "Yeris Tech & Resources LLC — a product studio shipping websites, apps, and AI agents for founders and operators.",
+    "Diseñamos lo complejo, para que experimentes lo simple. A product studio architecting the space between ambition & reality.",
   metadataBase: new URL("https://yeristech.com"),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: "https://yeristech.com",
-    siteName: "Yeris Tech & Resources LLC",
-    title: "Yeris Tech & Resources LLC — Product Studio",
+    siteName: "Yeris Tech & Resources",
+    title: "Yeris Tech & Resources — Product Studio",
     description:
-      "We build the things companies wish they'd already shipped. A product studio for founders who don't have time to hire a team.",
+      "Diseñamos lo complejo, para que experimentes lo simple. A product studio architecting the space between ambition & reality.",
     images: [
       {
-        url: "/og?title=Yeris+Tech+%26+Resources+LLC&kicker=Product+Studio",
+        url: "/og?title=Yeris+Tech+%26+Resources&kicker=Product+Studio",
         width: 1200,
         height: 630,
-        alt: "Yeris Tech & Resources LLC",
+        alt: "Yeris Tech & Resources",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Yeris Tech & Resources LLC — Product Studio",
+    title: "Yeris Tech & Resources — Product Studio",
     description:
-      "We build the things companies wish they'd already shipped.",
-    images: ["/og?title=Yeris+Tech+%26+Resources+LLC&kicker=Product+Studio"],
+      "Diseñamos lo complejo, para que experimentes lo simple.",
+    images: ["/og?title=Yeris+Tech+%26+Resources&kicker=Product+Studio"],
   },
   robots: {
     index: true,
@@ -54,27 +54,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
+      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased bg-[#0A0A0F]`}
     >
       <body className="min-h-full flex flex-col bg-(--color-bg) text-(--color-fg)">
         <a href="#main-content" className="skip-to-content">
           Skip to content
         </a>
         {/* Grain texture overlay */}
-        <div
-          className="pointer-events-none fixed inset-0"
-          style={{
-            zIndex: 9,
-            opacity: 0.03,
-            backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")`,
-            backgroundRepeat: "repeat",
-          }}
-          aria-hidden="true"
-        />
+        <div className="grain-overlay" aria-hidden="true" />
         <SiteNav />
-        <div id="main-content" className="flex-1 flex flex-col pt-16">
+        <main id="main-content" className="flex-1 flex flex-col">
           {children}
-        </div>
+        </main>
         <SiteFooter />
         <Toaster position="bottom-right" />
         <Analytics />
