@@ -46,24 +46,24 @@ export function LabSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-theme bg-theme-bg">
+    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)] bg-[#FBF8F3] dark:bg-[#0A0A0F]">
       <div className="max-w-[1400px] mx-auto">
         {/* Eyebrow */}
-        <div className="font-mono text-[11px] text-theme-muted tracking-[0.12em] mb-10 flex items-center">
-          <span className="text-theme-primary">¶</span>
+        <div className="font-mono text-[11px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-[#E85D04] dark:text-[#9D4EDD]">¶</span>
           <span className="font-serif italic mx-2.5">v.</span>
-          <span style={{ color: 'var(--color-border)' }}>—</span>
+          <span className="text-[rgba(0,0,0,0.1)] dark:text-[rgba(255,255,255,0.06)]">—</span>
           <span className="mx-2.5">the lab</span>
-          <span className="ml-auto text-theme-muted">{t("notas desde el teclado", "notes from the keyboard")}</span>
+          <span className="ml-auto text-[#5C5C5C] dark:text-[#888899]">{t("notas desde el teclado", "notes from the keyboard")}</span>
         </div>
 
         {/* Header with description */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-12">
-          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-theme-fg max-w-[380px]">
+          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-[#1A1A1A] dark:text-[#F5F5F7] max-w-[380px]">
             {t("Lo que aprendemos", "What we learn")}<br/>
-            <span className="italic text-theme-muted">{t("en producción.", "in production.")}</span>
+            <span className="italic text-[#5C5C5C] dark:text-[#888899]">{t("en producción.", "in production.")}</span>
           </h2>
-          <p className="text-[13px] text-theme-muted max-w-[280px] leading-[1.6] mb-1.5">
+          <p className="text-[13px] text-[#5C5C5C] dark:text-[#888899] max-w-[280px] leading-[1.6] mb-1.5">
             {t("Sin gatekeeping. Escrito por nosotros, no por marketing.", "No gatekeeping. Written by us, not by marketing.")}
           </p>
         </div>
@@ -73,19 +73,19 @@ export function LabSection() {
           {posts.map((post, i) => (
             <article 
               key={i}
-              className="card-hover bg-theme-card border border-theme rounded-[14px] p-5 cursor-pointer"
+              className="card-hover bg-[#FFFFFF] dark:bg-[#16161F] border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)] rounded-[14px] p-5 cursor-pointer"
             >
-              <div className="font-mono text-[10px] text-theme-muted tracking-[0.12em] mb-4 flex justify-between">
+              <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.12em] mb-4 flex justify-between">
                 <span>{post.date}</span>
-                <span className="text-theme-primary">[{post.tag}]</span>
+                <span className="text-[#E85D04] dark:text-[#9D4EDD]">[{post.tag}]</span>
               </div>
-              <h3 className="font-serif text-[21px] leading-[1.15] tracking-[-0.005em] font-normal text-theme-fg mb-3.5">
-                {post.title} <span className="italic text-theme-primary">{post.titleAccent}</span> {post.titleEnd}
+              <h3 className="font-serif text-[21px] leading-[1.15] tracking-[-0.005em] font-normal text-[#1A1A1A] dark:text-[#F5F5F7] mb-3.5">
+                {post.title} <span className="italic text-[#E85D04] dark:text-[#9D4EDD]">{post.titleAccent}</span> {post.titleEnd}
               </h3>
-              <p className="text-[12px] leading-[1.6] text-theme-muted mb-5">
+              <p className="text-[12px] leading-[1.6] text-[#5C5C5C] dark:text-[#888899] mb-5">
                 {post.description}
               </p>
-              <span className="font-mono text-[11px] text-theme-muted">
+              <span className="font-mono text-[11px] text-[#5C5C5C] dark:text-[#888899]">
                 {t("Leer", "Read")} · {post.readTime} &rarr;
               </span>
             </article>

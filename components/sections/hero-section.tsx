@@ -13,13 +13,13 @@ export function HeroSection() {
       <div className="py-24 md:pb-32 lg:pb-36 lg:pt-72">
         <div className="relative z-10 mx-auto flex max-w-7xl flex-col px-6 lg:block lg:px-12">
           <div className="mx-auto max-w-lg text-center lg:ml-0 lg:max-w-full lg:text-left">
-            <h1 className="mt-8 max-w-2xl text-balance font-serif text-5xl md:text-6xl lg:mt-16 xl:text-7xl text-theme-fg">
+            <h1 className="mt-8 max-w-2xl text-balance font-serif text-5xl md:text-6xl lg:mt-16 xl:text-7xl text-[#1A1A1A] dark:text-[#F5F5F7]">
               {t(
                 "Diseñamos lo complejo, para que experimentes lo simple.",
                 "We design the complex, so you experience the simple."
               )}
             </h1>
-            <p className="mt-8 max-w-2xl text-balance text-lg text-theme-muted">
+            <p className="mt-8 max-w-2xl text-balance text-lg text-[#5C5C5C] dark:text-[#888899]">
               {t(
                 "Un estudio de producto que arquitecta el espacio entre la ambición y la realidad. Construimos soluciones de software que escalan.",
                 "A product studio architecting the space between ambition & reality. We build software solutions that scale."
@@ -51,19 +51,30 @@ export function HeroSection() {
           </div>
         </div>
         
-        {/* Video background with dark overlay */}
-        <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl border border-theme sm:aspect-video lg:rounded-[3rem]">
+        {/* Video background with conditional light/dark videos */}
+        <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)] sm:aspect-video lg:rounded-[3rem]">
+          {/* Light mode video - visible only in light mode */}
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="size-full object-cover"
-            src="/videos/hero-animation.mp4"
+            className="size-full object-cover block dark:hidden"
+            src="/videos/video-light.mp4"
+            ref={(el) => { if (el) el.playbackRate = 0.5; }}
+          />
+          {/* Dark mode video - visible only in dark mode */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="size-full object-cover hidden dark:block"
+            src="/videos/video-dark.mp4"
             ref={(el) => { if (el) el.playbackRate = 0.5; }}
           />
           {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/70" />
+          <div className="absolute inset-0 bg-black/60 dark:bg-black/70" />
         </div>
       </div>
     </section>
