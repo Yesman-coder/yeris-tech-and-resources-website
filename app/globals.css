@@ -2,6 +2,13 @@
 @import "@fontsource/instrument-serif/400.css";
 @import "@fontsource/instrument-serif/400-italic.css";
 
+/* 
+  CRITICAL: Enable class-based dark mode for Tailwind v4
+  This makes dark: variants respond to .dark class on <html>
+  instead of prefers-color-scheme media query
+*/
+@variant dark (&:where(.dark, .dark *));
+
 /* Custom easing curves */
 :root {
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -288,6 +295,14 @@ a:active {
 /* Base styles */
 html {
   scroll-behavior: smooth;
+}
+
+/* Theme transition - smooth color changes when toggling dark/light */
+html,
+html *,
+html *::before,
+html *::after {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, fill 0.3s ease, stroke 0.3s ease;
 }
 
 body {

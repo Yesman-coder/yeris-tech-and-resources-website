@@ -64,7 +64,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="dark"
           enableSystem={false}
-          disableTransitionOnChange
         >
           <LanguageProvider>
             <a href="#main-content" className="skip-to-content">
