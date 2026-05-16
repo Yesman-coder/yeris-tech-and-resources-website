@@ -223,23 +223,47 @@ export default function HomePage() {
           </Reveal>
           <div className="grid grid-cols-1 lg:grid-cols-2 border-t border-(--color-border)">
             <Reveal className="border-b lg:border-b-0 lg:border-r border-(--color-border) py-12 lg:pr-16">
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-6">
-                Project Management
-              </p>
-              <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight mb-4">
-                Yesman Utrera
-              </h3>
+              <div className="flex items-start gap-6 mb-6">
+                <img
+                  src="/yesman-utrera.png"
+                  alt="Yesman Utrera"
+                  width={72}
+                  height={72}
+                  className="rounded-full object-cover object-top shrink-0"
+                  style={{ width: 72, height: 72 }}
+                />
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-2">
+                    Project Management
+                  </p>
+                  <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight">
+                    Yesman Utrera
+                  </h3>
+                </div>
+              </div>
               <p className="text-base text-(--color-muted) leading-relaxed max-w-sm">
                 Keeps every build on schedule and every client in the loop. Scope, communication, delivery: that&apos;s the lane.
               </p>
             </Reveal>
             <Reveal delay={0.1} className="py-12 lg:pl-16">
-              <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-6">
-                Senior Development
-              </p>
-              <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight mb-4">
-                Boris Bruno
-              </h3>
+              <div className="flex items-start gap-6 mb-6">
+                <img
+                  src="/boris-bruno.png"
+                  alt="Boris Bruno"
+                  width={72}
+                  height={72}
+                  className="rounded-full object-cover object-top shrink-0"
+                  style={{ width: 72, height: 72 }}
+                />
+                <div>
+                  <p className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-accent) mb-2">
+                    Senior Development
+                  </p>
+                  <h3 className="text-3xl lg:text-4xl font-medium text-(--color-fg) tracking-tight">
+                    Boris Bruno
+                  </h3>
+                </div>
+              </div>
               <p className="text-base text-(--color-muted) leading-relaxed max-w-sm">
                 Architecture decisions, production-grade code, and the engineering depth to tackle whatever the project demands.
               </p>

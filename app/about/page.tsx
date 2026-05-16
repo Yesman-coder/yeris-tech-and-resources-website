@@ -63,23 +63,21 @@ export default function AboutPage() {
           <Reveal delay={0.15}>
             <div className="flex flex-col gap-6 sticky top-24">
               <div>
-                <div
-                  className="aspect-square rounded-2xl border border-(--color-border) bg-gradient-to-br from-(--color-bg-elev) to-(--color-bg) flex items-center justify-center"
-                  aria-label="Yesman Utrera portrait placeholder"
-                >
-                  <span className="text-4xl font-mono text-(--color-muted)">YU</span>
-                </div>
+                <img
+                  src="/yesman-utrera.png"
+                  alt="Yesman Utrera"
+                  className="w-full aspect-square rounded-2xl object-cover object-top border border-(--color-border)"
+                />
                 <p className="text-xs font-mono text-(--color-muted) mt-2 text-center">
                   Yesman Utrera — Project Management
                 </p>
               </div>
               <div>
-                <div
-                  className="aspect-square rounded-2xl border border-(--color-border) bg-gradient-to-br from-(--color-bg-elev) to-(--color-bg) flex items-center justify-center"
-                  aria-label="Boris Bruno portrait placeholder"
-                >
-                  <span className="text-4xl font-mono text-(--color-muted)">BB</span>
-                </div>
+                <img
+                  src="/boris-bruno.png"
+                  alt="Boris Bruno"
+                  className="w-full aspect-square rounded-2xl object-cover object-top border border-(--color-border)"
+                />
                 <p className="text-xs font-mono text-(--color-muted) mt-2 text-center">
                   Boris Bruno — Senior Development
                 </p>
