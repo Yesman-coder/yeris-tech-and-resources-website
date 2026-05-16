@@ -67,7 +67,7 @@ function ContactContent() {
           <div>
             <Kicker className="mb-2">Location</Kicker>
             <p className="text-base text-muted-foreground">
-              Florida, USA · Working with clients worldwide
+              Caracas, Venezuela · Working with clients worldwide
             </p>
           </div>
           <div>

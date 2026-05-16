@@ -51,8 +51,8 @@ export function SiteFooter() {
               <a href="mailto:hello@yeristech.com" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">
                 hello@yeristech.com
               </a>
-              <span>Miami, FL</span>
-              <span>+1 ··· ···· ····</span>
+              <span>Caracas, Venezuela</span>
+              <span>{t("Clientes en todo el mundo", "Clients worldwide")}</span>
             </div>
           </div>
 
