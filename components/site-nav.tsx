@@ -85,7 +85,7 @@ export function SiteNav() {
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-background/80 backdrop-blur-md border-b border-border"
+            ? "bg-theme-bg/80 backdrop-blur-md border-b border-theme"
             : "bg-transparent"
         )}
       >
@@ -99,10 +99,10 @@ export function SiteNav() {
             aria-label="Yeris Tech home"
             onClick={() => setMobileOpen(false)}
           >
-            <span className="font-serif text-[19px] font-medium tracking-[-0.01em] text-foreground">
+            <span className="font-serif text-[19px] font-medium tracking-[-0.01em] text-theme-fg">
               Yeris
             </span>
-            <span className="font-mono text-[11px] text-muted-foreground tracking-[0.08em]">
+            <span className="font-mono text-[11px] text-theme-muted tracking-[0.08em]">
               [tech+resources]
             </span>
           </Link>
@@ -113,26 +113,26 @@ export function SiteNav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-[12px] text-muted-foreground hover:text-foreground transition-colors duration-150"
+                className="text-[12px] text-theme-muted hover:text-theme-fg transition-colors duration-150"
               >
                 {language === "es" ? link.labelEs : link.labelEn}
               </Link>
             ))}
-            <span className="text-border">|</span>
+            <span className="border-theme" style={{ color: 'var(--color-border)' }}>|</span>
             <button
               onClick={toggleLanguage}
-              className="font-mono text-[11px] text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+              className="font-mono text-[11px] text-theme-muted hover:text-theme-fg transition-colors cursor-pointer"
               aria-label={`Switch to ${language === "es" ? "English" : "Spanish"}`}
             >
-              <span className={language === "en" ? "text-primary" : ""}>en</span>
+              <span className={language === "en" ? "text-theme-primary" : ""}>en</span>
               {" "}
-              <span className="text-primary">/</span>
+              <span className="text-theme-primary">/</span>
               {" "}
-              <span className={language === "es" ? "text-primary" : ""}>es</span>
+              <span className={language === "es" ? "text-theme-primary" : ""}>es</span>
             </button>
             <button 
               onClick={toggleTheme}
-              className="bg-secondary border border-border px-2.5 py-1.5 rounded-md text-[12px] text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="bg-theme-secondary border border-theme px-2.5 py-1.5 rounded-md text-[12px] text-theme-muted hover:text-theme-fg transition-colors"
               aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
             >
               {mounted && (
@@ -145,7 +145,7 @@ export function SiteNav() {
             </button>
             <Link
               href="/contact"
-              className="cta-hover bg-primary px-4 py-2 rounded-full text-[12px] text-primary-foreground font-medium"
+              className="cta-hover bg-theme-primary px-4 py-2 rounded-full text-[12px] text-white font-medium"
             >
               {t("Iniciar proyecto", "Start a project")} &nbsp;&rarr;
             </Link>
@@ -153,7 +153,7 @@ export function SiteNav() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl text-foreground hover:bg-secondary transition-colors"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-xl text-theme-fg hover:bg-theme-secondary transition-colors"
             onClick={() => setMobileOpen((o) => !o)}
             aria-label={mobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={mobileOpen}
@@ -167,7 +167,7 @@ export function SiteNav() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            className="fixed inset-0 z-40 bg-background flex flex-col px-6 pt-24 pb-12"
+            className="fixed inset-0 z-40 bg-theme-bg flex flex-col px-6 pt-24 pb-12"
             initial={{ opacity: 0, y: -16 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -16 }}
@@ -184,7 +184,7 @@ export function SiteNav() {
                   <Link
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
-                    className="block font-serif text-4xl font-medium tracking-tight text-foreground hover:text-primary transition-colors duration-150 py-3 border-b border-border"
+                    className="block font-serif text-4xl font-medium tracking-tight text-theme-fg hover:text-theme-primary transition-colors duration-150 py-3 border-b border-theme"
                   >
                     {language === "es" ? link.labelEs : link.labelEn}
                   </Link>
@@ -196,15 +196,15 @@ export function SiteNav() {
             <div className="flex items-center gap-4 mb-6">
               <button
                 onClick={toggleLanguage}
-                className="font-mono text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="font-mono text-sm text-theme-muted hover:text-theme-fg transition-colors"
               >
-                <span className={language === "en" ? "text-primary" : ""}>EN</span>
+                <span className={language === "en" ? "text-theme-primary" : ""}>EN</span>
                 {" / "}
-                <span className={language === "es" ? "text-primary" : ""}>ES</span>
+                <span className={language === "es" ? "text-theme-primary" : ""}>ES</span>
               </button>
               <button 
                 onClick={toggleTheme}
-                className="bg-secondary border border-border px-3 py-2 rounded-md text-muted-foreground hover:text-foreground transition-colors"
+                className="bg-theme-secondary border border-theme px-3 py-2 rounded-md text-theme-muted hover:text-theme-fg transition-colors"
                 aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
               >
                 {mounted && (
@@ -225,7 +225,7 @@ export function SiteNav() {
               <Link
                 href="/contact"
                 onClick={() => setMobileOpen(false)}
-                className="inline-flex items-center gap-2 bg-primary text-primary-foreground font-medium text-base px-8 py-4 rounded-full active:scale-[0.97] transition-transform duration-100"
+                className="inline-flex items-center gap-2 bg-theme-primary text-white font-medium text-base px-8 py-4 rounded-full active:scale-[0.97] transition-transform duration-100"
               >
                 {t("Iniciar proyecto", "Start a project")} &rarr;
               </Link>

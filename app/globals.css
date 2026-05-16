@@ -10,8 +10,20 @@
   --radius: 0.5rem;
 }
 
+/* Base theme tokens for Tailwind v4 */
 @theme inline {
-  /* Dark theme (default) - Purple & Gray palette */
+  /* Fonts */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-serif: 'Instrument Serif', Georgia, serif;
+}
+
+/* 
+  Dark theme (default) - Purple & Gray palette
+  Applied via :root and when .dark class is present
+*/
+:root,
+.dark {
   --color-background: #0A0A0F;
   --color-foreground: #F5F5F7;
   --color-card: #16161F;
@@ -33,28 +45,26 @@
   --color-ring: #9D4EDD;
   
   /* Brand tokens */
-  --color-bg:            #0A0A0F;
-  --color-bg-elev:       #14141C;
-  --color-bg-card:       #16161F;
-  --color-fg:            #F5F5F7;
-  --color-muted-color:   #888899;
-  --color-muted-subtle:  #5C5C6C;
-  --color-border-color:  rgba(255, 255, 255, 0.06);
+  --color-bg: #0A0A0F;
+  --color-bg-elev: #14141C;
+  --color-bg-card: #16161F;
+  --color-fg: #F5F5F7;
+  --color-muted-color: #888899;
+  --color-muted-subtle: #5C5C6C;
+  --color-border-color: rgba(255, 255, 255, 0.06);
   --color-border-strong: #2A2A38;
   --color-border-accent: #1F1F2A;
-  --color-accent-color:  #C77DFF;
-  --color-accent-hover:  #9D4EDD;
-  --color-accent-deep:   #7B2CBF;
-  --color-accent-fg:     #FFFFFF;
-  --color-italic:        #B8B8C4;
-
-  /* Fonts */
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: 'Instrument Serif', Georgia, serif;
+  --color-accent-color: #C77DFF;
+  --color-accent-hover: #9D4EDD;
+  --color-accent-deep: #7B2CBF;
+  --color-accent-fg: #FFFFFF;
+  --color-italic: #B8B8C4;
 }
 
-/* Light theme - Class-based for toggle - Cream & Orange palette */
+/* 
+  Light theme - Cream & Orange palette 
+  Applied when .light class is present on html
+*/
 .light {
   --color-background: #FBF8F3;
   --color-foreground: #1A1A1A;
@@ -77,20 +87,20 @@
   --color-ring: #E85D04;
   
   /* Brand tokens */
-  --color-bg:            #FBF8F3;
-  --color-bg-elev:       #FFFFFF;
-  --color-bg-card:       #FFFFFF;
-  --color-fg:            #1A1A1A;
-  --color-muted-color:   #5C5C5C;
-  --color-muted-subtle:  #8A8A8A;
-  --color-border-color:  rgba(0, 0, 0, 0.10);
+  --color-bg: #FBF8F3;
+  --color-bg-elev: #FFFFFF;
+  --color-bg-card: #FFFFFF;
+  --color-fg: #1A1A1A;
+  --color-muted-color: #5C5C5C;
+  --color-muted-subtle: #8A8A8A;
+  --color-border-color: rgba(0, 0, 0, 0.10);
   --color-border-strong: #E0DAD0;
   --color-border-accent: #F0EAE0;
-  --color-accent-color:  #E85D04;
-  --color-accent-hover:  #D45003;
-  --color-accent-deep:   #B84503;
-  --color-accent-fg:     #FFFFFF;
-  --color-italic:        #4A4A4A;
+  --color-accent-color: #E85D04;
+  --color-accent-hover: #D45003;
+  --color-accent-deep: #B84503;
+  --color-accent-fg: #FFFFFF;
+  --color-italic: #4A4A4A;
 }
 
 /* Marquee animation */
@@ -354,7 +364,7 @@ body {
   color: var(--color-italic);
 }
 
-/* Purple italic accent */
+/* Purple/accent italic */
 .purple-accent {
   font-style: italic;
   color: var(--color-accent-color);
@@ -379,3 +389,25 @@ body {
 .bg-linear-to-l {
   background-image: linear-gradient(to left, var(--tw-gradient-stops));
 }
+
+/* 
+  Theme-aware utility classes that use CSS variables directly
+  These ensure components respond to light/dark toggle
+*/
+.bg-theme-bg { background-color: var(--color-background); }
+.bg-theme-card { background-color: var(--color-card); }
+.bg-theme-secondary { background-color: var(--color-secondary); }
+.bg-theme-muted { background-color: var(--color-muted); }
+.bg-theme-primary { background-color: var(--color-primary); }
+.bg-theme-accent { background-color: var(--color-accent); }
+
+.text-theme-fg { color: var(--color-foreground); }
+.text-theme-muted { color: var(--color-muted-foreground); }
+.text-theme-primary { color: var(--color-primary); }
+.text-theme-accent { color: var(--color-accent); }
+.text-theme-card { color: var(--color-card-foreground); }
+
+.border-theme { border-color: var(--color-border); }
+.border-theme-strong { border-color: var(--color-border-strong); }
+
+.ring-theme { --tw-ring-color: var(--color-ring); }

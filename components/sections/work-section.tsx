@@ -51,21 +51,21 @@ export function WorkSection({ projects }: WorkSectionProps) {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-border bg-background">
+    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-theme bg-theme-bg">
       <div className="max-w-[1400px] mx-auto">
         {/* Eyebrow */}
-        <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
-          <span className="text-primary">¶</span>
+        <div className="font-mono text-[11px] text-theme-muted tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-theme-primary">¶</span>
           <span className="font-serif italic mx-2.5">iv.</span>
-          <span className="text-border">—</span>
+          <span style={{ color: 'var(--color-border)' }}>—</span>
           <span className="mx-2.5">{t("trabajos seleccionados", "selected works")}</span>
-          <span className="ml-auto text-muted-foreground">14 shipments · 3 {t("destacados", "featured")}</span>
+          <span className="ml-auto text-theme-muted">14 shipments · 3 {t("destacados", "featured")}</span>
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[480px] mb-12">
+        <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-theme-fg max-w-[480px] mb-12">
           {t("Lo que ha cambiado", "What has changed")}<br/>
-          <span className="italic text-muted-foreground">{t("después de nosotros.", "after us.")}</span>
+          <span className="italic text-theme-muted">{t("después de nosotros.", "after us.")}</span>
         </h2>
 
         {/* Works list */}
@@ -73,24 +73,24 @@ export function WorkSection({ projects }: WorkSectionProps) {
           {works.map((work, i) => (
             <div 
               key={work.num}
-              className={`row-hover grid grid-cols-1 md:grid-cols-[50px_1.4fr_1fr_90px] gap-5 items-center py-7 px-2 -mx-2 border-t border-border ${i === works.length - 1 ? 'border-b' : ''}`}
+              className={`row-hover grid grid-cols-1 md:grid-cols-[50px_1.4fr_1fr_90px] gap-5 items-center py-7 px-2 -mx-2 border-t border-theme ${i === works.length - 1 ? 'border-b' : ''}`}
             >
-              <div className="font-mono text-[11px] text-muted-foreground hidden md:block">
+              <div className="font-mono text-[11px] text-theme-muted hidden md:block">
                 [ {work.num} ]
               </div>
               <div>
-                <h3 className="font-serif text-[24px] leading-[1.1] tracking-[-0.01em] font-normal text-foreground mb-1.5">
-                  {work.title} <span className="italic text-muted-foreground">{work.titleAccent}</span>
+                <h3 className="font-serif text-[24px] leading-[1.1] tracking-[-0.01em] font-normal text-theme-fg mb-1.5">
+                  {work.title} <span className="italic text-theme-muted">{work.titleAccent}</span>
                 </h3>
-                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.1em]">
+                <div className="font-mono text-[10px] text-theme-muted tracking-[0.1em]">
                   {work.meta}
                 </div>
               </div>
-              <div className="text-[13px] text-muted-foreground leading-[1.5]">
-                {work.description} <span className="text-primary">{work.outcome}</span> {work.outcomeLabel}
+              <div className="text-[13px] text-theme-muted leading-[1.5]">
+                {work.description} <span className="text-theme-primary">{work.outcome}</span> {work.outcomeLabel}
               </div>
               <div className="text-right hidden md:block">
-                <Link href={`/work/${projects[i]?.slug || ''}`} className="text-[11px] text-muted-foreground border-b border-border pb-0.5 hover:text-primary hover:border-primary transition-colors">
+                <Link href={`/work/${projects[i]?.slug || ''}`} className="text-[11px] text-theme-muted border-b border-theme pb-0.5 hover:text-theme-primary transition-colors">
                   Case &rarr;
                 </Link>
               </div>
@@ -99,7 +99,7 @@ export function WorkSection({ projects }: WorkSectionProps) {
         </div>
 
         <div className="mt-8">
-          <Link href="/work" className="text-[12px] text-primary tracking-[0.04em] border-b border-border pb-0.5 hover:border-primary transition-colors">
+          <Link href="/work" className="text-[12px] text-theme-primary tracking-[0.04em] border-b border-theme pb-0.5 hover:border-theme-primary transition-colors">
             {t("Ver los 14 shipments", "View all 14 shipments")} &nbsp;&rarr;
           </Link>
         </div>

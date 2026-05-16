@@ -46,24 +46,24 @@ export function LabSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-border bg-background">
+    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-theme bg-theme-bg">
       <div className="max-w-[1400px] mx-auto">
         {/* Eyebrow */}
-        <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
-          <span className="text-primary">¶</span>
+        <div className="font-mono text-[11px] text-theme-muted tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-theme-primary">¶</span>
           <span className="font-serif italic mx-2.5">v.</span>
-          <span className="text-border">—</span>
+          <span style={{ color: 'var(--color-border)' }}>—</span>
           <span className="mx-2.5">the lab</span>
-          <span className="ml-auto text-muted-foreground">{t("notas desde el teclado", "notes from the keyboard")}</span>
+          <span className="ml-auto text-theme-muted">{t("notas desde el teclado", "notes from the keyboard")}</span>
         </div>
 
         {/* Header with description */}
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-12">
-          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[380px]">
+          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-theme-fg max-w-[380px]">
             {t("Lo que aprendemos", "What we learn")}<br/>
-            <span className="italic text-muted-foreground">{t("en producción.", "in production.")}</span>
+            <span className="italic text-theme-muted">{t("en producción.", "in production.")}</span>
           </h2>
-          <p className="text-[13px] text-muted-foreground max-w-[280px] leading-[1.6] mb-1.5">
+          <p className="text-[13px] text-theme-muted max-w-[280px] leading-[1.6] mb-1.5">
             {t("Sin gatekeeping. Escrito por nosotros, no por marketing.", "No gatekeeping. Written by us, not by marketing.")}
           </p>
         </div>
@@ -73,19 +73,19 @@ export function LabSection() {
           {posts.map((post, i) => (
             <article 
               key={i}
-              className="card-hover bg-card border border-border rounded-[14px] p-5 cursor-pointer"
+              className="card-hover bg-theme-card border border-theme rounded-[14px] p-5 cursor-pointer"
             >
-              <div className="font-mono text-[10px] text-muted-foreground tracking-[0.12em] mb-4 flex justify-between">
+              <div className="font-mono text-[10px] text-theme-muted tracking-[0.12em] mb-4 flex justify-between">
                 <span>{post.date}</span>
-                <span className="text-primary">[{post.tag}]</span>
+                <span className="text-theme-primary">[{post.tag}]</span>
               </div>
-              <h3 className="font-serif text-[21px] leading-[1.15] tracking-[-0.005em] font-normal text-foreground mb-3.5">
-                {post.title} <span className="italic text-primary">{post.titleAccent}</span> {post.titleEnd}
+              <h3 className="font-serif text-[21px] leading-[1.15] tracking-[-0.005em] font-normal text-theme-fg mb-3.5">
+                {post.title} <span className="italic text-theme-primary">{post.titleAccent}</span> {post.titleEnd}
               </h3>
-              <p className="text-[12px] leading-[1.6] text-muted-foreground mb-5">
+              <p className="text-[12px] leading-[1.6] text-theme-muted mb-5">
                 {post.description}
               </p>
-              <span className="font-mono text-[11px] text-muted-foreground">
+              <span className="font-mono text-[11px] text-theme-muted">
                 {t("Leer", "Read")} · {post.readTime} &rarr;
               </span>
             </article>

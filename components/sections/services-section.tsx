@@ -40,21 +40,21 @@ export function ServicesSection() {
   ];
 
   return (
-    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-border bg-background">
+    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-theme bg-theme-bg">
       <div className="max-w-[1400px] mx-auto">
         {/* Eyebrow */}
-        <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
-          <span className="text-primary">¶</span>
+        <div className="font-mono text-[11px] text-theme-muted tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-theme-primary">¶</span>
           <span className="font-serif italic mx-2.5">iii.</span>
-          <span className="text-border">—</span>
+          <span style={{ color: 'var(--color-border)' }}>—</span>
           <span className="mx-2.5">{t("servicios", "services")}</span>
-          <span className="ml-auto text-muted-foreground">{t("tres formas de empezar", "three ways to start")}</span>
+          <span className="ml-auto text-theme-muted">{t("tres formas de empezar", "three ways to start")}</span>
         </div>
 
         {/* Heading */}
-        <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[480px] mb-6">
+        <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-theme-fg max-w-[480px] mb-6">
           {t("Tres caminos", "Three paths")}<br/>
-          <span className="italic text-muted-foreground">{t("para entrar.", "to enter.")}</span>
+          <span className="italic text-theme-muted">{t("para entrar.", "to enter.")}</span>
         </h2>
 
         {/* Services list */}
@@ -62,29 +62,29 @@ export function ServicesSection() {
           {services.map((svc, i) => (
             <div 
               key={svc.num}
-              className={`row-hover grid grid-cols-1 md:grid-cols-[60px_1fr_110px] gap-6 items-start py-8 px-2 -mx-2 border-t border-border ${i === services.length - 1 ? 'border-b' : ''}`}
+              className={`row-hover grid grid-cols-1 md:grid-cols-[60px_1fr_110px] gap-6 items-start py-8 px-2 -mx-2 border-t border-theme ${i === services.length - 1 ? 'border-b' : ''}`}
             >
-              <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] pt-1.5">
+              <div className="font-mono text-[11px] text-theme-muted tracking-[0.12em] pt-1.5">
                 [ {svc.num} ]
               </div>
               <div>
-                <h3 className="font-serif text-[30px] leading-[1.05] tracking-[-0.015em] font-normal text-foreground mb-3.5">
-                  {svc.title} <span className="italic text-muted-foreground">{svc.titleAccent}</span>
+                <h3 className="font-serif text-[30px] leading-[1.05] tracking-[-0.015em] font-normal text-theme-fg mb-3.5">
+                  {svc.title} <span className="italic text-theme-muted">{svc.titleAccent}</span>
                 </h3>
-                <p className="text-[14px] leading-[1.65] text-muted-foreground mb-4 max-w-[480px]">
+                <p className="text-[14px] leading-[1.65] text-theme-muted mb-4 max-w-[480px]">
                   {svc.description}
                 </p>
-                <div className="font-mono text-[10px] text-muted-foreground tracking-[0.12em] flex gap-3.5 flex-wrap">
+                <div className="font-mono text-[10px] text-theme-muted tracking-[0.12em] flex gap-3.5 flex-wrap">
                   {svc.tags.map((tag, j) => (
                     <span key={tag} className="flex items-center gap-3.5">
                       <span>{tag}</span>
-                      {j < svc.tags.length - 1 && <span className="text-border">·</span>}
+                      {j < svc.tags.length - 1 && <span style={{ color: 'var(--color-border)' }}>·</span>}
                     </span>
                   ))}
                 </div>
               </div>
               <div className="text-right pt-2 hidden md:block">
-                <Link href="/services" className="link-hover text-[12px] text-muted-foreground border-b border-border pb-0.5 hover:text-primary hover:border-primary transition-colors">
+                <Link href="/services" className="link-hover text-[12px] text-theme-muted border-b border-theme pb-0.5 hover:text-theme-primary transition-colors">
                   {t("Leer más", "Read more")} &rarr;
                 </Link>
               </div>
