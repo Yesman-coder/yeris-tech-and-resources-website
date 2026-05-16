@@ -1,63 +1,103 @@
+"use client";
+
 import Link from "next/link";
-import { ExternalLinkIcon } from "./external-link-icon";
+import { useLanguage } from "@/components/language-provider";
 
 export function SiteFooter() {
+  const { t } = useLanguage();
+  
   return (
-    <footer className="border-t border-(--color-border) bg-(--color-bg)">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-12 flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-        <div className="flex flex-col gap-2">
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-200 w-fit"
-          >
-            <span className="inline-flex items-center justify-center bg-white rounded-md shrink-0" style={{ width: 32, height: 32, padding: 3 }}>
-              <img
-                src="/logo.png"
-                alt=""
-                width={26}
-                height={26}
-                className="object-contain"
-                style={{ width: 26, height: 26 }}
-              />
-            </span>
-            <span className="text-base font-medium text-(--color-fg)">
-              Yeris<span className="text-(--color-accent)">.</span>
-            </span>
-          </Link>
-          <p className="text-xs text-(--color-muted) font-mono">
-            © {new Date().getFullYear()} Yeris Tech &amp; Resources LLC
-          </p>
+    <footer className="bg-[#FFFFFF] dark:bg-[#16161F] pt-14 pb-7 border-t border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)]">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-7">
+        {/* Main footer grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.6fr_1fr_1fr_1fr] gap-8 mb-12">
+          {/* Brand column */}
+          <div>
+            <div className="flex items-baseline gap-2 mb-5">
+              <span className="font-serif text-[30px] font-medium text-[#1A1A1A] dark:text-[#F5F5F7] tracking-[-0.01em]">
+                Yeris
+              </span>
+              <span className="font-mono text-[11px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.08em]">
+                [tech+resources]
+              </span>
+            </div>
+            <p className="font-serif italic text-[17px] leading-[1.4] max-w-[280px] text-[#5C5C5C] dark:text-[#888899]">
+              {t(
+                "Arquitectando el espacio entre la ambición",
+                "Architecting the space between ambition"
+              )} <span className="text-[#E85D04] dark:text-[#9D4EDD]">&amp;</span> {t("la realidad.", "reality.")}
+            </p>
+          </div>
+
+          {/* Studio links */}
+          <div>
+            <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.18em] mb-4">
+              STUDIO
+            </div>
+            <div className="flex flex-col text-[13px] leading-[2] text-[#5C5C5C] dark:text-[#888899]">
+              <Link href="/work" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">{t("Trabajo", "Work")}</Link>
+              <Link href="/services" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">{t("Servicios", "Services")}</Link>
+              <Link href="/lab" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">Lab</Link>
+              <Link href="/about" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">{t("Nosotros", "About")}</Link>
+            </div>
+          </div>
+
+          {/* Contact */}
+          <div>
+            <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.18em] mb-4">
+              {t("CONTACTO", "CONTACT")}
+            </div>
+            <div className="flex flex-col text-[13px] leading-[2] text-[#5C5C5C] dark:text-[#888899]">
+              <a href="mailto:hello@yeristech.com" className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors">
+                hello@yeristech.com
+              </a>
+              <span>Caracas, Venezuela</span>
+              <span>{t("Clientes en todo el mundo", "Clients worldwide")}</span>
+            </div>
+          </div>
+
+          {/* Social */}
+          <div>
+            <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.18em] mb-4">
+              SOCIAL
+            </div>
+            <div className="flex flex-col text-[13px] leading-[2] text-[#5C5C5C] dark:text-[#888899]">
+              <a 
+                href="https://twitter.com/yeristech" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
+              >
+                X / Twitter
+              </a>
+              <a 
+                href="https://linkedin.com/company/yeristech" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
+              >
+                LinkedIn
+              </a>
+              <a 
+                href="https://github.com/yesman-coder" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="hover:text-[#1A1A1A] dark:hover:text-[#F5F5F7] transition-colors"
+              >
+                GitHub
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-6">
-          <a
-            href="mailto:yeristech@gmail.com"
-            className="text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-200"
-          >
-            yeristech@gmail.com
-          </a>
-          <a
-            href="https://linkedin.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-200"
-          >
-            LinkedIn <ExternalLinkIcon />
-          </a>
-          <a
-            href="https://github.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-200"
-          >
-            GitHub <ExternalLinkIcon />
-          </a>
-          <Link
-            href="/contact"
-            className="text-sm text-(--color-muted) hover:text-(--color-fg) transition-colors duration-200"
-          >
-            Contact
-          </Link>
+        {/* Bottom bar */}
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 pt-5 border-t border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)]">
+          <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.08em]">
+            © mmxxvi · yeris tech and resources llc · {t("todos los derechos reservados", "all rights reserved")}
+          </div>
+          <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.08em]">
+            {t("construido con", "built with")} next.js · vercel · <span className="text-[#E85D04] dark:text-[#9D4EDD]">claude</span>
+          </div>
         </div>
       </div>
     </footer>
