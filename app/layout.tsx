@@ -4,6 +4,8 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@/components/ui/sonner";
+import { ThemeProvider } from "@/components/theme-provider";
+import { LanguageProvider } from "@/components/language-provider";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
@@ -54,20 +56,30 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased bg-[#0A0A0F]`}
+      className={`${GeistSans.variable} ${GeistMono.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-(--color-bg) text-(--color-fg)">
-        <a href="#main-content" className="skip-to-content">
-          Skip to content
-        </a>
-        {/* Grain texture overlay */}
-        <div className="grain-overlay" aria-hidden="true" />
-        <SiteNav />
-        <main id="main-content" className="flex-1 flex flex-col">
-          {children}
-        </main>
-        <SiteFooter />
-        <Toaster position="bottom-right" />
+      <body className="min-h-full flex flex-col bg-background text-foreground">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={false}
+          disableTransitionOnChange
+        >
+          <LanguageProvider>
+            <a href="#main-content" className="skip-to-content">
+              Skip to content
+            </a>
+            {/* Grain texture overlay */}
+            <div className="grain-overlay" aria-hidden="true" />
+            <SiteNav />
+            <main id="main-content" className="flex-1 flex flex-col">
+              {children}
+            </main>
+            <SiteFooter />
+            <Toaster position="bottom-right" />
+          </LanguageProvider>
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </body>
