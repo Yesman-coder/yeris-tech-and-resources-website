@@ -118,7 +118,11 @@ export default function HomePage() {
           <span className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-muted)">
             Selected work
           </span>
-          <span className="text-(--color-muted) text-xs animate-bounce-y inline-block">↓</span>
+          <span className="text-(--color-muted) animate-bounce-y inline-block" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M7 1v12M2 8l5 5 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </span>
         </div>
       </section>
 
@@ -155,10 +159,10 @@ export default function HomePage() {
             );
           })}
         </div>
-        <div className="mt-12 flex justify-center">
+        <div className="mt-12">
           <Link
             href="/work"
-            className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors border border-(--color-border) hover:border-(--color-accent) px-6 py-3 rounded-full"
+            className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors"
           >
             View all 9 projects →
           </Link>
@@ -287,32 +291,42 @@ export default function HomePage() {
 
       {/* Partners */}
       <section className="border-t border-(--color-border)">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
-          <Reveal>
-            <Kicker className="mb-3">Partners</Kicker>
-            <p className="text-base text-(--color-muted) max-w-lg leading-relaxed">
-              When a project calls for it, we extend through our partnership with{" "}
-              <a
-                href="https://www.thewaveestudio.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-(--color-fg) hover:text-(--color-accent) transition-colors underline underline-offset-4"
-              >
-                The Wave Estudio
-              </a>
-              , adding design, branding, and visual production capabilities to the build.
-            </p>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <a
-              href="https://www.thewaveestudio.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-mono text-(--color-accent) hover:underline shrink-0"
-            >
-              thewaveestudio.com →
-            </a>
-          </Reveal>
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-end">
+            <Reveal>
+              <Kicker className="mb-6">Strategic partner</Kicker>
+              <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg) leading-[1.05]">
+                When the project calls for more,{" "}
+                <a
+                  href="https://www.thewaveestudio.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-(--color-accent) hover:underline underline-offset-4 decoration-1"
+                >
+                  The Wave Estudio
+                </a>{" "}
+                is already in the room.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <div className="flex flex-col gap-6">
+                <p className="text-base text-(--color-muted) leading-relaxed">
+                  A creative studio specializing in brand identity, visual design, and production. When Yeris takes on a project that requires that extra layer of craft — photography, branding systems, motion design — The Wave Estudio handles it at the same level of quality we hold our engineering to.
+                </p>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4 pt-2 border-t border-(--color-border)">
+                  <span className="text-xs font-mono uppercase tracking-[0.2em] text-(--color-muted)">Design · Branding · Visual Production</span>
+                  <a
+                    href="https://www.thewaveestudio.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm font-mono text-(--color-accent) hover:underline shrink-0 sm:ml-auto"
+                  >
+                    thewaveestudio.com →
+                  </a>
+                </div>
+              </div>
+            </Reveal>
+          </div>
         </div>
       </section>
 

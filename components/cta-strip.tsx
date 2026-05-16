@@ -7,7 +7,7 @@ export function CtaStrip() {
         <div className="flex items-center gap-3 mb-8">
           <img
             src="/logo.png"
-            alt="Yeris Tech logo"
+            alt=""
             width={36}
             height={36}
             className="rounded-sm object-contain"

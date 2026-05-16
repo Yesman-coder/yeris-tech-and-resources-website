@@ -10,14 +10,16 @@ export function SiteFooter() {
             href="/"
             className="flex items-center gap-2.5 hover:opacity-80 transition-opacity duration-200 w-fit"
           >
-            <img
-              src="/logo.png"
-              alt="Yeris Tech logo"
-              width={32}
-              height={32}
-              className="rounded-sm object-contain"
-              style={{ width: 32, height: 32 }}
-            />
+            <span className="inline-flex items-center justify-center bg-white rounded-md shrink-0" style={{ width: 32, height: 32, padding: 3 }}>
+              <img
+                src="/logo.png"
+                alt=""
+                width={26}
+                height={26}
+                className="object-contain"
+                style={{ width: 26, height: 26 }}
+              />
+            </span>
             <span className="text-base font-medium text-(--color-fg)">
               Yeris<span className="text-(--color-accent)">.</span>
             </span>

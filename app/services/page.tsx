@@ -4,7 +4,7 @@ import { ProjectCard } from "@/components/project-card";
 import { Kicker } from "@/components/kicker";
 import { Reveal } from "@/components/reveal";
 import { CtaStrip } from "@/components/cta-strip";
-import { Globe, Bot, Smartphone, ShoppingBag } from "lucide-react";
+import { Globe, Robot, DeviceMobile, ShoppingCart } from "@phosphor-icons/react/dist/ssr";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -16,6 +16,7 @@ const serviceData = [
   {
     id: "web-design",
     icon: Globe,
+    number: "01",
     title: "Web Design & Development",
     description: [
       "From marketing sites to full web applications, we build products that are fast, accessible, and built to scale. Every project starts with a clear scope and ends in production.",
@@ -25,7 +26,8 @@ const serviceData = [
   },
   {
     id: "ai-agents",
-    icon: Bot,
+    icon: Robot,
+    number: "02",
     title: "AI Agents & Automation",
     description: [
       "We design and deploy production-grade AI agents that handle repetitive work — triage, follow-up, back-office automation, and more. Built on the Vercel AI SDK and tested against real workloads.",
@@ -35,7 +37,8 @@ const serviceData = [
   },
   {
     id: "apps",
-    icon: Smartphone,
+    icon: DeviceMobile,
+    number: "03",
     title: "Mobile & Web Apps",
     description: [
       "Full-stack product builds from zero to shipped. We handle product design, engineering, auth, roles, and handoff — everything you need to go from idea to live product.",
@@ -45,7 +48,8 @@ const serviceData = [
   },
   {
     id: "ecommerce",
-    icon: ShoppingBag,
+    icon: ShoppingCart,
+    number: "04",
     title: "E-commerce",
     description: [
       "Storefronts designed for conversion — fast product grids, clean PDPs, and checkout flows tuned for first-time mobile buyers. No Shopify lock-in. No theme limitations.",
@@ -61,61 +65,79 @@ export default function ServicesPage() {
       <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
         <Reveal>
           <Kicker className="mb-4">What we do</Kicker>
-          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-(--color-fg) mb-6">
+          <h1 className="text-5xl md:text-7xl font-medium tracking-tight text-(--color-fg) leading-[1.02] mb-6">
             Services
           </h1>
-          <p className="text-base text-(--color-muted) max-w-2xl leading-relaxed">
+          <p className="text-base text-(--color-muted) max-w-xl leading-relaxed">
             We ship working products. Pick the service that fits your project.
           </p>
         </Reveal>
       </section>
 
-      {serviceData.map((svc, idx) => {
-        const related = projects.filter((p) =>
-          p.services.some((s) =>
-            s.toLowerCase().includes(svc.serviceMatch.toLowerCase())
-          )
-        );
+      <div className="border-t border-(--color-border)">
+        {serviceData.map((svc, idx) => {
+          const related = projects.filter((p) =>
+            p.services.some((s) =>
+              s.toLowerCase().includes(svc.serviceMatch.toLowerCase())
+            )
+          );
+          const Icon = svc.icon;
 
-        return (
-          <section
-            key={svc.id}
-            id={svc.id}
-            className={`border-t border-(--color-border) ${idx % 2 === 1 ? "bg-(--color-bg-elev)" : ""}`}
-          >
-            <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-24 md:py-32">
-              <Reveal>
-                <div className="flex items-center gap-3 mb-6">
-                  <svc.icon className="w-7 h-7 text-(--color-accent)" aria-hidden="true" />
-                  <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg)">
-                    {svc.title}
-                  </h2>
-                </div>
-                <div className="max-w-2xl flex flex-col gap-4 mb-12">
-                  {svc.description.map((para, i) => (
-                    <p key={i} className="text-base text-(--color-muted) leading-relaxed">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </Reveal>
+          return (
+            <section
+              key={svc.id}
+              id={svc.id}
+              className="border-b border-(--color-border)"
+            >
+              <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-20 md:py-28">
+                <Reveal>
+                  <div className="grid grid-cols-1 lg:grid-cols-[200px_1fr] gap-8 lg:gap-16 items-start">
+                    {/* Left: number + icon */}
+                    <div className="flex lg:flex-col items-center lg:items-start gap-4 lg:gap-6 lg:pt-1">
+                      <span className="text-5xl font-mono font-medium text-(--color-accent) tabular-nums leading-none">
+                        {svc.number}
+                      </span>
+                      <Icon
+                        size={28}
+                        weight="light"
+                        className="text-(--color-muted)"
+                        aria-hidden
+                      />
+                    </div>
 
-              {related.length > 0 && (
-                <div>
-                  <Kicker className="mb-6">Past work</Kicker>
-                  <div className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
-                    {related.map((p) => (
-                      <div key={p.slug} className="min-w-[320px] snap-start">
-                        <ProjectCard project={p} />
+                    {/* Right: content */}
+                    <div>
+                      <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-(--color-fg) mb-8 leading-tight">
+                        {svc.title}
+                      </h2>
+                      <div className="flex flex-col gap-4 max-w-2xl mb-12">
+                        {svc.description.map((para, i) => (
+                          <p key={i} className="text-base text-(--color-muted) leading-relaxed">
+                            {para}
+                          </p>
+                        ))}
                       </div>
-                    ))}
+
+                      {related.length > 0 && (
+                        <div>
+                          <Kicker className="mb-6">Past work</Kicker>
+                          <div className="flex gap-6 overflow-x-auto pb-2 snap-x snap-mandatory">
+                            {related.map((p) => (
+                              <div key={p.slug} className="min-w-[320px] snap-start">
+                                <ProjectCard project={p} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                </div>
-              )}
-            </div>
-          </section>
-        );
-      })}
+                </Reveal>
+              </div>
+            </section>
+          );
+        })}
+      </div>
 
       <CtaStrip />
     </>
