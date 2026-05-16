@@ -32,27 +32,27 @@ const howWeWork = [
 
 export default function AboutPage() {
   return (
-    <div className="bg-(--color-bg) min-h-screen">
+    <div className="bg-background min-h-screen">
       {/* Hero */}
       <section className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-7 pt-24 pb-16">
         {/* Eyebrow */}
-        <div className="font-mono text-[11px] text-(--color-muted) tracking-[0.12em] mb-10 flex items-center">
-          <span className="text-(--color-accent)">¶</span>
+        <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-primary">¶</span>
           <span className="font-serif italic mx-2.5">vii.</span>
-          <span className="text-(--color-border-strong)">—</span>
+          <span className="text-border">—</span>
           <span className="mx-2.5">about</span>
-          <span className="ml-auto text-(--color-muted-subtle)">the studio behind the shipments</span>
+          <span className="ml-auto text-muted-foreground/70">the studio behind the shipments</span>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-16 items-start">
           <div>
-            <h1 className="font-serif text-[clamp(40px,8vw,60px)] leading-[0.99] tracking-[-0.02em] font-normal text-(--color-fg) mb-10">
+            <h1 className="font-serif text-[clamp(40px,8vw,60px)] leading-[0.99] tracking-[-0.02em] font-normal text-foreground mb-10">
               Two disciplines.<br/>
-              <span className="italic text-(--color-italic)">One studio.</span><br/>
-              Every project <span className="italic text-(--color-accent)">shipped.</span>
+              <span className="italic text-foreground/80">One studio.</span><br/>
+              Every project <span className="italic text-primary">shipped.</span>
             </h1>
             
-            <div className="flex flex-col gap-5 text-[15px] text-(--color-muted) leading-[1.7] max-w-2xl">
+            <div className="flex flex-col gap-5 text-[15px] text-foreground/70 leading-[1.7] max-w-2xl">
               <p>
                 Yeris Tech & Resources LLC is built on the partnership of Yesman Utrera and Boris Bruno. Yesman brings seasoned project management — scoping, client communication, delivery timelines, and keeping every build on track. Boris brings the senior development muscle — architecture decisions, production-grade code, and the engineering depth to tackle whatever the project requires.
               </p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
           {/* Team photos */}
           <div className="flex flex-col gap-8 lg:sticky lg:top-24">
             <div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden border border-(--color-border-accent)">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-border">
                 <Image
                   src="/images/yesman-portrait.jpg"
                   alt="Yesman Utrera"
@@ -77,16 +77,16 @@ export default function AboutPage() {
                 />
               </div>
               <div className="mt-4">
-                <p className="font-mono text-[10px] text-(--color-accent) tracking-[0.2em] mb-1">
+                <p className="font-mono text-[10px] text-primary tracking-[0.2em] mb-1">
                   PROJECT MANAGEMENT
                 </p>
-                <p className="font-serif text-[24px] text-(--color-fg)">
+                <p className="font-serif text-[24px] text-foreground">
                   Yesman Utrera
                 </p>
               </div>
             </div>
             <div>
-              <div className="relative aspect-square rounded-2xl overflow-hidden border border-(--color-border-accent)">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-border">
                 <Image
                   src="/images/developer-portrait.jpg"
                   alt="Boris Bruno"
@@ -95,10 +95,10 @@ export default function AboutPage() {
                 />
               </div>
               <div className="mt-4">
-                <p className="font-mono text-[10px] text-(--color-accent) tracking-[0.2em] mb-1">
+                <p className="font-mono text-[10px] text-primary tracking-[0.2em] mb-1">
                   SENIOR DEVELOPMENT
                 </p>
-                <p className="font-serif text-[24px] text-(--color-fg)">
+                <p className="font-serif text-[24px] text-foreground">
                   Boris Bruno
                 </p>
               </div>
@@ -108,29 +108,29 @@ export default function AboutPage() {
       </section>
 
       {/* Principles */}
-      <section className="section">
+      <section className="py-16 px-6 md:px-10 border-t border-border bg-background">
         <div className="max-w-[1400px] mx-auto">
-          <div className="eyebrow">
-            <span className="text-(--color-accent)">¶</span>
+          <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
+            <span className="text-primary">¶</span>
             <span className="font-serif italic mx-2.5">viii.</span>
-            <span className="text-(--color-border-strong)">—</span>
+            <span className="text-border">—</span>
             <span className="mx-2.5">principles</span>
           </div>
           
-          <h2 className="section-heading max-w-[480px] mb-14">
-            How we <span className="italic-accent">think.</span>
+          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[480px] mb-14">
+            How we <span className="italic text-foreground/80">think.</span>
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {principles.map((p, i) => (
               <div key={p.title}>
-                <div className="font-mono text-[11px] text-(--color-accent) tracking-[0.2em] mb-4">
+                <div className="font-mono text-[11px] text-primary tracking-[0.2em] mb-4">
                   {["i.", "ii.", "iii."][i]}
                 </div>
-                <h3 className="font-serif text-[24px] leading-[1.1] text-(--color-fg) mb-3">
+                <h3 className="font-serif text-[24px] leading-[1.1] text-foreground mb-3">
                   {p.title}
                 </h3>
-                <p className="text-[13px] text-(--color-muted) leading-[1.65]">
+                <p className="text-[13px] text-foreground/60 leading-[1.65]">
                   {p.body}
                 </p>
               </div>
@@ -140,29 +140,29 @@ export default function AboutPage() {
       </section>
 
       {/* How we work */}
-      <section className="section">
+      <section className="py-16 px-6 md:px-10 border-t border-border bg-background">
         <div className="max-w-[1400px] mx-auto">
-          <div className="eyebrow">
-            <span className="text-(--color-accent)">¶</span>
+          <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
+            <span className="text-primary">¶</span>
             <span className="font-serif italic mx-2.5">ix.</span>
-            <span className="text-(--color-border-strong)">—</span>
+            <span className="text-border">—</span>
             <span className="mx-2.5">process</span>
           </div>
           
-          <h2 className="section-heading max-w-[480px] mb-14">
-            How we <span className="italic-accent">work.</span>
+          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[480px] mb-14">
+            How we <span className="italic text-foreground/80">work.</span>
           </h2>
 
           <ol className="flex flex-col max-w-2xl">
             {howWeWork.map((step, i) => (
               <li 
                 key={i} 
-                className={`flex items-start gap-6 py-6 border-t border-(--color-border) ${i === howWeWork.length - 1 ? 'border-b' : ''}`}
+                className={`flex items-start gap-6 py-6 border-t border-border ${i === howWeWork.length - 1 ? 'border-b' : ''}`}
               >
-                <span className="font-mono text-[11px] text-(--color-muted-subtle) tracking-[0.12em] pt-1 shrink-0">
+                <span className="font-mono text-[11px] text-muted-foreground/70 tracking-[0.12em] pt-1 shrink-0">
                   [ {String(i + 1).padStart(2, "0")} ]
                 </span>
-                <p className="text-[14px] text-(--color-muted) leading-[1.65]">
+                <p className="text-[14px] text-foreground/70 leading-[1.65]">
                   {step}
                 </p>
               </li>
@@ -172,7 +172,7 @@ export default function AboutPage() {
           <div className="mt-10">
             <Link
               href="/contact"
-              className="link-hover text-[12px] text-(--color-accent) tracking-[0.04em] border-b border-(--color-border-strong) pb-0.5"
+              className="link-hover text-[12px] text-primary tracking-[0.04em] border-b border-border pb-0.5"
             >
               Start a project &nbsp;&rarr;
             </Link>
@@ -181,27 +181,27 @@ export default function AboutPage() {
       </section>
 
       {/* Partnership */}
-      <section className="section">
+      <section className="py-16 px-6 md:px-10 border-t border-border bg-background">
         <div className="max-w-[1400px] mx-auto">
-          <div className="eyebrow">
-            <span className="text-(--color-accent)">¶</span>
+          <div className="font-mono text-[11px] text-muted-foreground tracking-[0.12em] mb-10 flex items-center">
+            <span className="text-primary">¶</span>
             <span className="font-serif italic mx-2.5">x.</span>
-            <span className="text-(--color-border-strong)">—</span>
+            <span className="text-border">—</span>
             <span className="mx-2.5">partner</span>
           </div>
           
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1fr] gap-16 items-start">
             <div>
-              <h2 className="section-heading max-w-[480px] mb-6">
-                Extended reach when the project <span className="italic-accent">calls for it.</span>
+              <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-foreground max-w-[480px] mb-6">
+                Extended reach when the project <span className="italic text-foreground/80">calls for it.</span>
               </h2>
-              <p className="text-[14px] text-(--color-muted) leading-[1.65] max-w-md mb-8">
+              <p className="text-[14px] text-foreground/70 leading-[1.65] max-w-md mb-8">
                 Yeris works in close partnership with{" "}
                 <a
                   href="https://www.thewaveestudio.com/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-(--color-fg) hover:text-(--color-accent) transition-colors underline underline-offset-4"
+                  className="text-foreground hover:text-primary transition-colors underline underline-offset-4"
                 >
                   The Wave Estudio
                 </a>
@@ -211,12 +211,12 @@ export default function AboutPage() {
                 href="https://www.thewaveestudio.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="link-hover text-[12px] text-(--color-accent) tracking-[0.04em] border-b border-(--color-border-strong) pb-0.5"
+                className="link-hover text-[12px] text-primary tracking-[0.04em] border-b border-border pb-0.5"
               >
                 Visit The Wave Estudio &nbsp;&rarr;
               </a>
             </div>
-            <div className="flex justify-center items-center bg-(--color-bg-elev) rounded-2xl p-12 border border-(--color-border-accent)">
+            <div className="flex justify-center items-center bg-secondary rounded-2xl p-12 border border-border">
               <Image
                 src="/images/wave-estudio.webp"
                 alt="The Wave Estudio"
@@ -230,17 +230,17 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="section py-24">
+      <section className="py-24 px-6 md:px-10 border-t border-border bg-background">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h2 className="font-serif text-[clamp(36px,7vw,54px)] leading-none tracking-[-0.02em] font-normal text-(--color-fg) mb-5">
-            Ready to <span className="italic text-(--color-accent)">build?</span>
+          <h2 className="font-serif text-[clamp(36px,7vw,54px)] leading-none tracking-[-0.02em] font-normal text-foreground mb-5">
+            Ready to <span className="italic text-primary">build?</span>
           </h2>
-          <p className="font-serif text-[19px] italic text-(--color-italic) max-w-[400px] mx-auto leading-[1.4] mb-10">
+          <p className="font-serif text-[19px] italic text-foreground/70 max-w-[400px] mx-auto leading-[1.4] mb-10">
             {"Let's talk about your project."}
           </p>
           <Link
             href="/contact"
-            className="cta-hover inline-block bg-(--color-accent-hover) px-8 py-4 rounded-full text-[14px] font-medium text-white"
+            className="cta-hover inline-block bg-primary px-8 py-4 rounded-full text-[14px] font-medium text-primary-foreground"
           >
             Start a project &nbsp;&rarr;
           </Link>

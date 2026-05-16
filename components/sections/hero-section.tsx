@@ -48,24 +48,27 @@ export function HeroSection() {
                 variant="ghost"
                 className="h-12 rounded-full px-5 text-base hover:bg-secondary"
               >
-                <Link href="/assessment">
-                  <span className="text-nowrap">{t("Tomar evaluación", "Take assessment")}</span>
+                <Link href="/estimator">
+                  <span className="text-nowrap">{t("¿Cuánto costará mi idea?", "How much will my idea cost?")}</span>
                 </Link>
               </Button>
             </div>
           </div>
         </div>
         
-        {/* Video background */}
+        {/* Video background with dark overlay */}
         <div className="aspect-[2/3] absolute inset-1 overflow-hidden rounded-3xl border border-border sm:aspect-video lg:rounded-[3rem]">
           <video
             autoPlay
             loop
             muted
             playsInline
-            className="size-full object-cover opacity-50 invert dark:opacity-35 dark:invert-0 dark:lg:opacity-75"
+            className="size-full object-cover"
             src="/videos/hero-animation.mp4"
+            ref={(el) => { if (el) el.playbackRate = 0.5; }}
           />
+          {/* Dark overlay for better text readability */}
+          <div className="absolute inset-0 bg-black/60 dark:bg-black/50" />
         </div>
       </div>
       

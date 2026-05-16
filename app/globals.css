@@ -54,43 +54,43 @@
   --font-serif: 'Instrument Serif', Georgia, serif;
 }
 
-/* Light theme - Class-based for toggle */
+/* Light theme - Class-based for toggle - Cream & Orange palette */
 .light {
-  --color-background: #FAFAFA;
-  --color-foreground: #0A0A0F;
+  --color-background: #FBF8F3;
+  --color-foreground: #1A1A1A;
   --color-card: #FFFFFF;
-  --color-card-foreground: #0A0A0F;
+  --color-card-foreground: #1A1A1A;
   --color-popover: #FFFFFF;
-  --color-popover-foreground: #0A0A0F;
-  --color-primary: #9D4EDD;
+  --color-popover-foreground: #1A1A1A;
+  --color-primary: #E85D04;
   --color-primary-foreground: #FFFFFF;
-  --color-secondary: #F0F0F2;
-  --color-secondary-foreground: #0A0A0F;
-  --color-muted: #F0F0F2;
-  --color-muted-foreground: #6B6B7B;
-  --color-accent: #9D4EDD;
+  --color-secondary: #F5F0E8;
+  --color-secondary-foreground: #1A1A1A;
+  --color-muted: #F5F0E8;
+  --color-muted-foreground: #5C5C5C;
+  --color-accent: #E85D04;
   --color-accent-foreground: #FFFFFF;
   --color-destructive: #EF4444;
   --color-destructive-foreground: #FFFFFF;
-  --color-border: rgba(0, 0, 0, 0.08);
-  --color-input: #E5E5E8;
-  --color-ring: #9D4EDD;
+  --color-border: rgba(0, 0, 0, 0.10);
+  --color-input: #EDE8E0;
+  --color-ring: #E85D04;
   
   /* Brand tokens */
-  --color-bg:            #FAFAFA;
+  --color-bg:            #FBF8F3;
   --color-bg-elev:       #FFFFFF;
   --color-bg-card:       #FFFFFF;
-  --color-fg:            #0A0A0F;
-  --color-muted-color:   #6B6B7B;
-  --color-muted-subtle:  #9A9AAA;
-  --color-border-color:  rgba(0, 0, 0, 0.08);
-  --color-border-strong: #E5E5E8;
-  --color-border-accent: #F0F0F2;
-  --color-accent-color:  #9D4EDD;
-  --color-accent-hover:  #7B2CBF;
-  --color-accent-deep:   #5A189A;
+  --color-fg:            #1A1A1A;
+  --color-muted-color:   #5C5C5C;
+  --color-muted-subtle:  #8A8A8A;
+  --color-border-color:  rgba(0, 0, 0, 0.10);
+  --color-border-strong: #E0DAD0;
+  --color-border-accent: #F0EAE0;
+  --color-accent-color:  #E85D04;
+  --color-accent-hover:  #D45003;
+  --color-accent-deep:   #B84503;
   --color-accent-fg:     #FFFFFF;
-  --color-italic:        #4A4A5A;
+  --color-italic:        #4A4A4A;
 }
 
 /* Marquee animation */

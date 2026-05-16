@@ -17,6 +17,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+const FORMSPREE_ID = "mdalwjyz";
+
 const schema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().email("Valid email required"),
@@ -28,7 +30,15 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export function ContactForm() {
+interface ContactFormProps {
+  prefillData?: {
+    projectType?: string;
+    budget?: string;
+    message?: string;
+  };
+}
+
+export function ContactForm({ prefillData }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
 
   const {
@@ -36,13 +46,23 @@ export function ContactForm() {
     handleSubmit,
     setValue,
     formState: { errors, isSubmitting },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<FormData>({ 
+    resolver: zodResolver(schema),
+    defaultValues: {
+      projectType: prefillData?.projectType || "",
+      budget: prefillData?.budget || "",
+      message: prefillData?.message || "",
+    }
+  });
 
   async function onSubmit(data: FormData) {
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error("Server error");
@@ -55,14 +75,14 @@ export function ContactForm() {
   if (submitted) {
     return (
       <div className="flex flex-col items-center justify-center text-center py-24 gap-6">
-        <p className="text-2xl font-medium text-(--color-fg)">
+        <p className="text-2xl font-medium text-foreground">
           Thanks. We&apos;ll be in touch within one business day.
         </p>
         <Link
           href="/"
-          className="text-sm font-mono text-(--color-muted) hover:text-(--color-fg) transition-colors"
+          className="text-sm font-mono text-muted-foreground hover:text-foreground transition-colors"
         >
-          ← Back to home
+          &larr; Back to home
         </Link>
       </div>
     );
@@ -111,7 +131,10 @@ export function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col gap-2">
           <Label htmlFor="budget">Budget range *</Label>
-          <Select onValueChange={(v) => setValue("budget", v)}>
+          <Select 
+            onValueChange={(v) => setValue("budget", v)}
+            defaultValue={prefillData?.budget}
+          >
             <SelectTrigger id="budget" aria-invalid={!!errors.budget}>
               <SelectValue placeholder="Select a range" />
             </SelectTrigger>
@@ -131,7 +154,10 @@ export function ContactForm() {
 
         <div className="flex flex-col gap-2">
           <Label htmlFor="projectType">Project type *</Label>
-          <Select onValueChange={(v) => setValue("projectType", v)}>
+          <Select 
+            onValueChange={(v) => setValue("projectType", v)}
+            defaultValue={prefillData?.projectType}
+          >
             <SelectTrigger id="projectType" aria-invalid={!!errors.projectType}>
               <SelectValue placeholder="Select type" />
             </SelectTrigger>
@@ -167,7 +193,7 @@ export function ContactForm() {
       <Button
         type="submit"
         disabled={isSubmitting}
-        className="w-full md:w-auto md:self-start bg-(--color-accent) text-(--color-accent-fg) hover:opacity-90 transition-opacity font-medium text-base px-8 py-4 h-auto rounded-2xl"
+        className="w-full md:w-auto md:self-start bg-primary text-primary-foreground hover:opacity-90 transition-opacity font-medium text-base px-8 py-4 h-auto rounded-2xl"
       >
         {isSubmitting ? "Sending…" : "Send →"}
       </Button>
