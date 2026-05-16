@@ -118,7 +118,6 @@ export const projects: Project[] = [
     services: ["Product design", "Web app development", "Auth & roles"],
     stack: ["Next.js", "Tailwind CSS", "v0", "Vercel"],
     featured: false,
-    hidePreview: true,
   },
   {
     slug: "world-fixer",
