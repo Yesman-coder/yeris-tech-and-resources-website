@@ -274,6 +274,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Partners */}
+      <section className="border-t border-(--color-border)">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 lg:px-16 py-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-8">
+          <Reveal>
+            <Kicker className="mb-3">Partners</Kicker>
+            <p className="text-base text-(--color-muted) max-w-lg leading-relaxed">
+              When a project calls for it, we extend through our partnership with{" "}
+              <a
+                href="https://www.thewaveestudio.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-(--color-fg) hover:text-(--color-accent) transition-colors underline underline-offset-4"
+              >
+                The Wave Estudio
+              </a>
+              , adding design, branding, and visual production capabilities to the build.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <a
+              href="https://www.thewaveestudio.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm font-mono text-(--color-accent) hover:underline shrink-0"
+            >
+              thewaveestudio.com →
+            </a>
+          </Reveal>
+        </div>
+      </section>
+
       {/* Contact CTA */}
       <CtaStrip />
     </>
