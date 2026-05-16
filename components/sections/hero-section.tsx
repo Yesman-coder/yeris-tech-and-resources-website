@@ -73,8 +73,8 @@ export function HeroSection() {
             src="/videos/video-dark.mp4"
             ref={(el) => { if (el) el.playbackRate = 0.5; }}
           />
-          {/* Dark overlay for better text readability */}
-          <div className="absolute inset-0 bg-black/60 dark:bg-black/70" />
+          {/* Overlay for better text readability - light cream in light mode, dark in dark mode */}
+          <div className="absolute inset-0 bg-[#FBF8F3]/80 dark:bg-black/70" />
         </div>
       </div>
     </section>
