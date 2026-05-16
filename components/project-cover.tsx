@@ -1,4 +1,6 @@
+"use client";
 import Image from "next/image";
+import { useState } from "react";
 
 interface ProjectCoverProps {
   url: string | null;
@@ -24,7 +26,9 @@ export function ProjectCover({
   initials = "??",
   priority = false,
 }: ProjectCoverProps) {
-  if (!url) {
+  const [errored, setErrored] = useState(false);
+
+  if (!url || errored) {
     return <PlaceholderCover initials={initials} />;
   }
 
@@ -41,6 +45,7 @@ export function ProjectCover({
         unoptimized
         priority={priority}
         className="object-cover object-top transition-transform duration-700 hover:scale-[1.02]"
+        onError={() => setErrored(true)}
       />
     </div>
   );
