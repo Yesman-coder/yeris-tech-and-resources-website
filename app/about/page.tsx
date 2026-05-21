@@ -119,7 +119,7 @@ export default function AboutPage() {
             <div>
               <div className="relative aspect-square rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)]">
                 <Image
-                  src="/images/developer-portrait.jpg"
+                  src="/images/boris-bruno.jpg"
                   alt="Boris Bruno"
                   fill
                   className="object-cover object-top"
