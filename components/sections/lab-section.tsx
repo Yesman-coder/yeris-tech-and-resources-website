@@ -1,0 +1,97 @@
+"use client";
+
+import Link from "next/link";
+import { useLanguage } from "@/components/language-provider";
+
+export function LabSection() {
+  const { t } = useLanguage();
+  
+  const posts = [
+    {
+      date: "nov 04 · 2025",
+      tag: "infra",
+      title: t("Por qué eliminamos la mitad de nuestros", "Why we deleted half our"),
+      titleAccent: "microservices",
+      titleEnd: t("y dormimos mejor.", "and slept better."),
+      description: t(
+        "Volver a un monolito modular redujo el infra bill en 60% y los incidents a la mitad.",
+        "Going back to a modular monolith reduced the infra bill by 60% and incidents by half."
+      ),
+      readTime: "7 min",
+    },
+    {
+      date: "oct 22 · 2025",
+      tag: "process",
+      title: t("La regla de las 4", "The 4"),
+      titleAccent: t("horas", "hour"),
+      titleEnd: t(": cómo auditamos antes de cotizar.", " rule: how we audit before quoting."),
+      description: t(
+        "Cuatro horas pagadas que ahorran cuatro meses de proyecto torcido.",
+        "Four paid hours that save four months of twisted project."
+      ),
+      readTime: "5 min",
+    },
+    {
+      date: "oct 09 · 2025",
+      tag: "ai",
+      title: t("Cuando los agentes dejan de ser", "When agents stop being"),
+      titleAccent: "demos",
+      titleEnd: t("y empiezan a ser infra.", "and start being infra."),
+      description: t(
+        "El gap entre prompt-eng en notebook y agentes con SLA en producción.",
+        "The gap between prompt-eng in notebook and agents with SLA in production."
+      ),
+      readTime: "9 min",
+    },
+  ];
+
+  return (
+    <section className="py-16 md:py-20 px-6 md:px-10 lg:px-7 border-t border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)] bg-[#FBF8F3] dark:bg-[#0A0A0F]">
+      <div className="max-w-[1400px] mx-auto">
+        {/* Eyebrow */}
+        <div className="font-mono text-[11px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.12em] mb-10 flex items-center">
+          <span className="text-[#E85D04] dark:text-[#9D4EDD]">¶</span>
+          <span className="font-serif italic mx-2.5">v.</span>
+          <span className="text-[rgba(0,0,0,0.1)] dark:text-[rgba(255,255,255,0.06)]">—</span>
+          <span className="mx-2.5">the lab</span>
+          <span className="ml-auto text-[#5C5C5C] dark:text-[#888899]">{t("notas desde el teclado", "notes from the keyboard")}</span>
+        </div>
+
+        {/* Header with description */}
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 mb-12">
+          <h2 className="font-serif text-[40px] leading-[1.02] tracking-[-0.02em] font-normal text-[#1A1A1A] dark:text-[#F5F5F7] max-w-[380px]">
+            {t("Lo que aprendemos", "What we learn")}<br/>
+            <span className="italic text-[#5C5C5C] dark:text-[#888899]">{t("en producción.", "in production.")}</span>
+          </h2>
+          <p className="text-[13px] text-[#5C5C5C] dark:text-[#888899] max-w-[280px] leading-[1.6] mb-1.5">
+            {t("Sin gatekeeping. Escrito por nosotros, no por marketing.", "No gatekeeping. Written by us, not by marketing.")}
+          </p>
+        </div>
+
+        {/* Cards grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          {posts.map((post, i) => (
+            <article 
+              key={i}
+              className="card-hover bg-[#FFFFFF] dark:bg-[#16161F] border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.06)] rounded-[14px] p-5 cursor-pointer"
+            >
+              <div className="font-mono text-[10px] text-[#5C5C5C] dark:text-[#888899] tracking-[0.12em] mb-4 flex justify-between">
+                <span>{post.date}</span>
+                <span className="text-[#E85D04] dark:text-[#9D4EDD]">[{post.tag}]</span>
+              </div>
+              <h3 className="font-serif text-[21px] leading-[1.15] tracking-[-0.005em] font-normal text-[#1A1A1A] dark:text-[#F5F5F7] mb-3.5">
+                {post.title} <span className="italic text-[#E85D04] dark:text-[#9D4EDD]">{post.titleAccent}</span> {post.titleEnd}
+              </h3>
+              <p className="text-[12px] leading-[1.6] text-[#5C5C5C] dark:text-[#888899] mb-5">
+                {post.description}
+              </p>
+              <span className="font-mono text-[11px] text-[#5C5C5C] dark:text-[#888899]">
+                {t("Leer", "Read")} · {post.readTime} &rarr;
+              </span>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
